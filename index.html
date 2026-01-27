@@ -3,13 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morocco Desert Trails | Authentic Sahara Tours</title>
-    <meta name="description" content="Discover the magic of the Moroccan Sahara with Morocco Desert Trails. Luxury camps, camel trekking, and 4x4 adventures.">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    
+    <title>Morocco Desert Trails</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,10 +13,18 @@
     <nav class="navbar">
         <div class="logo">Morocco Desert Trails</div>
         <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#tours">Tours</a></li>
-            <li><a href="#contact" class="btn-nav">Book Now</a></li>
+            <li><a href="#home" data-i18n="nav-home">Home</a></li>
+            <li><a href="#about" data-i18n="nav-about">About</a></li>
+            <li><a href="#tours" data-i18n="nav-tours">Tours</a></li>
+            <li><a href="#gallery" data-i18n="nav-gallery">Gallery</a></li>
+            <li><a href="#contact" class="btn-nav" data-i18n="nav-book">Book Now</a></li>
+            <li>
+                <select id="language-selector">
+                    <option value="en">English</option>
+                    <option value="fr">Français</option>
+                    <option value="ar">العربية</option>
+                </select>
+            </li>
         </ul>
         <div class="burger">
             <i class="fas fa-bars"></i>
@@ -29,33 +33,35 @@
 
     <header id="home" class="hero">
         <div class="hero-content">
-            <h1>Unveil the Magic of the Moroccan Sahara</h1>
-            <p>More than a trip, it’s a journey into the soul of Morocco with local experts.</p>
-            <a href="https://wa.me/212600000000" class="btn-main"><i class="fab fa-whatsapp"></i> Start Your Adventure</a>
+            <h1 data-i18n="hero-title">Unveil the Magic of the Moroccan Sahara</h1>
+            <p data-i18n="hero-sub">More than a trip, it’s a journey into the soul of Morocco.</p>
+            <a href="https://wa.me/212600000000" class="btn-main">
+                <i class="fab fa-whatsapp"></i> <span data-i18n="btn-start">Start Your Adventure</span>
+            </a>
         </div>
     </header>
 
     <section id="about" class="section-padding">
         <div class="container">
             <div class="title-wrap">
-                <h2>Why Choose Us?</h2>
+                <h2 data-i18n="about-title">Why Choose Us?</h2>
                 <div class="line"></div>
             </div>
             <div class="features-grid">
                 <div class="feature-box">
                     <i class="fas fa-campground"></i>
-                    <h3>Luxury Camps</h3>
-                    <p>Sleep under the stars with the comfort of a private suite.</p>
+                    <h3 data-i18n="feat-1-title">Luxury Camps</h3>
+                    <p data-i18n="feat-1-desc">Sleep under the stars with the comfort of a private suite.</p>
                 </div>
                 <div class="feature-box">
                     <i class="fas fa-user-shield"></i>
-                    <h3>Local Experts</h3>
-                    <p>Born in the desert, we know every dune and hidden gem.</p>
+                    <h3 data-i18n="feat-2-title">Local Experts</h3>
+                    <p data-i18n="feat-2-desc">Born in the desert, we know every dune and hidden gem.</p>
                 </div>
                 <div class="feature-box">
                     <i class="fas fa-camera"></i>
-                    <h3>Custom Memories</h3>
-                    <p>Tailor-made itineraries for photographers and families.</p>
+                    <h3 data-i18n="feat-3-title">Custom Memories</h3>
+                    <p data-i18n="feat-3-desc">Tailor-made itineraries for photographers and families.</p>
                 </div>
             </div>
         </div>
@@ -64,23 +70,35 @@
     <section id="tours" class="section-padding bg-light">
         <div class="container">
             <div class="title-wrap">
-                <h2>Most Popular Tour</h2>
+                <h2 data-i18n="tour-title">Most Popular Tour</h2>
                 <div class="line"></div>
             </div>
             <div class="tour-card">
                 <div class="tour-img">
-                    <img src="https://images.unsplash.com/photo-1539020140153-e479b8c22e70?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Camel Trekking">
+                    <img src="https://images.unsplash.com/photo-1539020140153-e479b8c22e70?w=800" alt="Camel Trekking">
                 </div>
                 <div class="tour-info">
-                    <h3>The Golden Route: 3 Days Marrakech to Merzouga</h3>
-                    <p>Cross the High Atlas Mountains, visit Ait Ben Haddou, and spend a magical night in the dunes.</p>
-                    <ul class="tour-highlights">
-                        <li><i class="fas fa-check"></i> Camel Trek at Sunset</li>
-                        <li><i class="fas fa-check"></i> Private 4x4 A/C</li>
-                        <li><i class="fas fa-check"></i> Luxury Camp Night</li>
-                    </ul>
-                    <a href="https://wa.me/212600000000" class="btn-outline">Book This Tour</a>
+                    <h3 data-i18n="tour-name">The Golden Route: 3 Days</h3>
+                    <p data-i18n="tour-desc">Cross the High Atlas Mountains, visit Ait Ben Haddou, and spend a magical night in the dunes.</p>
+                    <a href="https://wa.me/212600000000" class="btn-outline" data-i18n="tour-btn">Book This Tour</a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="section-padding">
+        <div class="container">
+            <div class="title-wrap">
+                <h2 data-i18n="gallery-title">Our Moments</h2>
+                <div class="line"></div>
+            </div>
+            <div class="gallery-grid">
+                <img src="https://images.unsplash.com/photo-1549241520-425e3dfc01cb?w=600" alt="Sahara">
+                <img src="https://images.unsplash.com/photo-1512552288940-3a300922a275?w=600" alt="Morocco Architecture">
+                <img src="https://images.unsplash.com/photo-1590418606746-0188b23024d9?w=600" alt="Camels">
+                <img src="https://images.unsplash.com/photo-1534068590799-09895a701e3e?w=600" alt="Tea">
+                <img src="https://images.unsplash.com/photo-1588693899479-71df89cb0e12?w=600" alt="Desert Night">
+                <img src="https://images.unsplash.com/photo-1489749798305-4fea3ae63d43?w=600" alt="Dunes">
             </div>
         </div>
     </section>
@@ -88,16 +106,15 @@
     <footer id="contact">
         <div class="footer-content">
             <h3>Morocco Desert Trails</h3>
-            <p>Follow us for daily inspiration from the dunes.</p>
+            <p data-i18n="footer-text">Follow us for daily inspiration from the dunes.</p>
             <div class="socials">
-                <a href="https://www.facebook.com/share/1GPdpq769F/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/morocco_desert_trails" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/1GPdpq769F/?mibextid=wwXIfr"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/morocco_desert_trails"><i class="fab fa-instagram"></i></a>
             </div>
-            <p class="copyright">&copy; 2024 Morocco Desert Trails. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <a href="https://wa.me/212624725148" class="float-wa" target="_blank">
+    <a href="https://wa.me/212600000000" class="float-wa" target="_blank">
         <i class="fab fa-whatsapp my-float"></i>
     </a>
 

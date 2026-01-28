@@ -96,21 +96,38 @@ html[lang="ar"] .tour-highlights i { margin-right: 0; margin-left: 10px; }
 
 
 /* --- 3. واجهة الموقع (Hero Section) - التعديلات الأخيرة هنا --- */
+/* =========================================
+   تحديث الواجهة (Hero) بالصورة الجديدة الكاملة
+   ========================================= */
+
+/* 1. إعداد خلفية الواجهة */
 .hero {
     height: 100vh; /* ارتفاع كامل للشاشة */
-    /* هام: استبدل الرابط التالي برابط صورتك الخاصة على جيت هاب مثل url('image_3.png'); */
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1489749798305-4fea3ae63d43?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
-    background-size: cover;
-    background-position: center;
-    /* تثبيت الخلفية أثناء التمرير لـ تأثير جميل */
-    background-attachment: fixed;
+    width: 100%;
+    /* رابط الصورة الجديدة - تأكد أن الاسم مطابق تماماً */
+    background: url('image_10.png') no-repeat center center;
+    background-size: cover; /* جعل الصورة تغطي كامل المساحة */
+    
+    /* إعدادات لضمان ظهور الصورة بشكل جيد على مختلف الشاشات */
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    color: white;
-    padding: 0 20px;
+    
+    /* إزالة أي هوامش قد تؤثر على الصورة */
+    margin: 0;
+    padding: 0;
 }
+
+/* 2. إخفاء النصوص والأزرار القديمة (HTML) */
+/* لأن الصورة الجديدة تحتوي على النصوص والشعار جاهزة */
+.hero-content {
+    display: none !important;
+}
+
+/* =========================================
+   باقي أكواد الموقع (القائمة، الأقسام، إلخ...)
+   اترك باقي الملف كما هو دونه تغيير
+   ========================================= */}
 
 .hero-content {
     max-width: 900px;

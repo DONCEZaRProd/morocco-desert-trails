@@ -122,3 +122,36 @@ function setLanguage(lang) {
             });
         });
     }
+// =========================================
+// كود تكبير الصور (Lightbox Logic)
+// =========================================
+
+// الحصول على العناصر
+const modal = document.getElementById("myModal");
+const modalImg = document.getElementById("img01");
+const closeBtn = document.getElementsByClassName("close")[0];
+
+// البحث عن جميع الصور داخل معرض الصور
+const galleryImages = document.querySelectorAll('.gallery-grid img');
+
+// إضافة حدث النقر لكل صورة
+galleryImages.forEach(img => {
+    img.addEventListener('click', function() {
+        modal.style.display = "block"; // إظهار النافذة
+        modalImg.src = this.src; // وضع الصورة التي تم ضغطها داخل النافذة
+    });
+});
+
+// عند الضغط على زر الإغلاق (X)
+if(closeBtn) {
+    closeBtn.onclick = function() { 
+        modal.style.display = "none";
+    }
+}
+
+// عند الضغط في أي مكان خارج الصورة، أغلق النافذة أيضاً (لتحسين التجربة)
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}

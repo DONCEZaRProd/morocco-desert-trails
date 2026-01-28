@@ -512,3 +512,68 @@ footer {
     font-weight: 700;
     font-size: 1rem;
 }
+/* =========================================
+   تنسيقات الأسئلة الشائعة (FAQ - Accordion)
+   ========================================= */
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* زر السؤال */
+.accordion {
+    background-color: #fff;
+    color: var(--secondary-color);
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left; /* سيتحول لليمين تلقائياً في العربية */
+    outline: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: 0.4s;
+    border-bottom: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* أيقونة + تضاف تلقائياً */
+.accordion:after {
+    content: '\002B'; /* رمز الزائد + */
+    color: var(--primary-color);
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+    font-size: 1.5rem;
+}
+
+/* عند تفعيل السؤال */
+.active, .accordion:hover {
+    background-color: #f9f9f9;
+    color: var(--primary-color);
+}
+
+/* تغيير الرمز إلى - عند الفتح */
+.active:after {
+    content: "\2212"; /* رمز الناقص - */
+}
+
+/* حاوية الإجابة (مخفية افتراضياً) */
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.panel p {
+    padding: 15px 0;
+    line-height: 1.6;
+    color: #555;
+}

@@ -219,4 +219,17 @@ footer { background: var(--secondary-color); color: #fff; text-align: center; pa
     .btn-main { padding: 10px 20px; font-size: 0.9rem; }
     .nav-links { width: 80%; } /* توسيع القائمة الجانبية قليلاً */
     .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); } /* تصغير حجم الصور في المعرض */
-}
+    /* داخل قسم @media screen and (max-width: 768px) في نهاية الملف */
+
+    /* تصغير حجم العناوين على الموبايل */
+    .hero h1 {
+        font-size: 1.8rem !important; /* تصغير الخط للموبايل */
+        margin-bottom: 15px;
+    }
+
+    .hero p {
+        font-size: 1rem !important; /* تصغير الخط للموبايل */
+        padding: 0 15px;
+        /* التأكد من وجود مسافة كافية تحت النص في الموبايل أيضاً */
+        margin-bottom: 60px !important;
+    }}

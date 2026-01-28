@@ -96,7 +96,44 @@ footer { background: var(--secondary-color); color: #fff; text-align: center; pa
 
 /* للشاشات المتوسطة والصغيرة (أجهزة لوحية وهواتف) - أقل من 768 بكسل */
 @media screen and (max-width: 768px) {
-    /* ... أكواد أخرى ... */
+    /* --- أضف هذا الكود داخل قسم @media screen and (max-width: 768px) --- */
+
+    /* تعديل ارتفاع الواجهة وتركيز الصورة */
+    .hero {
+        /* تقليل الارتفاع على الموبايل حتى لا يتم قص الصورة كثيراً */
+        height: 70vh !important; /* بدلاً من 100vh */
+        min-height: 550px; /* ضمان حد أدنى للارتفاع */
+
+        /* تثبيت الصورة في الأسفل والوسط لضمان ظهور القصبة والجمال */
+        background-position: bottom center !important;
+    }
+
+    /* تعديل محتوى الواجهة ليتناسب مع الارتفاع الجديد */
+    .hero-content {
+        /* رفع المحتوى للأعلى قليلاً */
+        justify-content: flex-start !important;
+        padding-top: 100px; /* مسافة من الأعلى */
+    }
+
+    /* تصغير حجم العناوين قليلاً على الموبايل لتبدو أجمل */
+    .hero h1 {
+        font-size: 1.6rem !important;
+        margin-bottom: 15px;
+    }
+
+    .hero p {
+        font-size: 0.95rem !important;
+        padding: 0 20px;
+        margin-bottom: 30px; /* مسافة قبل الزر */
+    }
+
+    /* تعديل حجم الزر */
+    .btn-main {
+        padding: 12px 25px;
+        font-size: 0.9rem;
+    }
+
+/* --------------------------------------------------------- */    /* ... أكواد أخرى ... */
 
     /* تعديل حجم الخطوط في الواجهة */
     .hero h1 { font-size: 2rem; }

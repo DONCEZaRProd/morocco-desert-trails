@@ -96,8 +96,20 @@ footer { background: var(--secondary-color); color: #fff; text-align: center; pa
 
 /* للشاشات المتوسطة والصغيرة (أجهزة لوحية وهواتف) - أقل من 768 بكسل */
 @media screen and (max-width: 768px) {
+    /* ... أكواد أخرى ... */
 
-    /* 1. تعديل القائمة العلوية */
+    /* تعديل حجم الخطوط في الواجهة */
+    .hero h1 { font-size: 2rem; }
+
+    /* ===> تم التعديل هنا بزيادة margin-bottom <=== */
+    .hero p {
+        font-size: 1rem;
+        padding: 0 10px;
+        margin-bottom: 60px; /* قم بزيادة هذا الرقم لإنزال الزر أكثر */
+    }
+
+    /* ... أكواد أخرى ... */
+}    /* 1. تعديل القائمة العلوية */
     body { overflow-x: hidden; } /* منع التمرير الأفقي */
 
     .nav-links {

@@ -98,3 +98,27 @@ function setLanguage(lang) {
         }
     });
 }
+// --- Mobile Navigation Toggle ---
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('.nav-links');
+    const navLinksItems = document.querySelectorAll('.nav-links li');
+
+    if (burger && nav) {
+        burger.addEventListener('click', () => {
+            // 1. Toggle Nav Show/Hide
+            nav.classList.toggle('nav-active');
+
+            // 2. Animate Burger Icon (Optional - turns lines into X)
+            burger.classList.toggle('toggle');
+        });
+
+        // Close menu when a link is clicked (for better UX)
+        navLinksItems.forEach(link => {
+            link.addEventListener('click', () => {
+                if (nav.classList.contains('nav-active')) {
+                    nav.classList.remove('nav-active');
+                    burger.classList.remove('toggle');
+                }
+            });
+        });
+    }

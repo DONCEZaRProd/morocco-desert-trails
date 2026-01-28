@@ -469,3 +469,46 @@ footer {
         width: 95%;
     }
 }
+/* =========================================
+   تنسيقات قسم آراء العملاء (Testimonials)
+   ========================================= */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.review-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: 0.3s;
+    border-top: 4px solid var(--primary-color); /* لمسة جمالية ذهبية */
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.stars {
+    color: #f1c40f; /* لون النجوم الأصفر */
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.review-card p {
+    font-style: italic;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+.review-card h4 {
+    color: var(--secondary-color);
+    font-weight: 700;
+    font-size: 1rem;
+}

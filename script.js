@@ -21,7 +21,10 @@ const translations = {
         "tour-btn": "Book This Tour",
         "gallery-title": "Our Moments",
         "footer-text": "Follow us for daily inspiration from the dunes."
-    },
+        "reviews-title": "What Travelers Say",
+"review-1": "\"An unforgettable experience! sleeping under the stars in Merzouga was the highlight of our trip.\"",
+"review-2": "\"Very professional service. The luxury camp was cleaner than many hotels.\"",
+"review-3": "\"Authentic and magical. The camel trek at sunset was breathtaking.\"",    },
     fr: {
         "nav-home": "Accueil",
         "nav-about": "À propos",
@@ -44,7 +47,10 @@ const translations = {
         "tour-btn": "Réserver ce circuit",
         "gallery-title": "Nos Moments",
         "footer-text": "Suivez-nous pour une inspiration quotidienne."
-    },
+    "reviews-title": "Avis des voyageurs",
+"review-1": "\"Une expérience inoubliable ! Dormir à la belle étoile à Merzouga a été le moment fort de notre voyage.\"",
+"review-2": "\"Service très professionnel. Le bivouac de luxe était plus propre que de nombreux hôtels.\"",
+"review-3": "\"Authentique et magique. La balade à dos de chameau au coucher du soleil était époustouflante.\"",    },
     ar: {
         "nav-home": "الرئيسية",
         "nav-about": "من نحن",
@@ -67,7 +73,10 @@ const translations = {
         "tour-btn": "احجز هذه الرحلة",
         "gallery-title": "لحظاتنا",
         "footer-text": "تابعنا للحصول على إلهام يومي من الصحراء."
-    }
+        "reviews-title": "آراء المسافرين",
+"review-1": "\"تجربة لا تُنسى! النوم تحت النجوم في مرزوقة كان أجمل لحظة في رحلتنا للمغرب.\"",
+"review-2": "\"خدمة احترافية للغاية. المخيم الفاخر كان أنظف من العديد من الفنادق التي زرناها.\"",
+"review-3": "\"رحلة ساحرة وأصلية. ركوب الجمال وقت الغروب كان منظراً يحبس الأنفاس.\"",    }
 };
 
 document.addEventListener('DOMContentLoaded', () => {

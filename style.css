@@ -1,515 +1,115 @@
-/* ==========================================================================
-   ملف التصميم الشامل - Morocco Desert Trails
-   تاريخ التحديث: شامل لكل التعديلات السابقة
-   ========================================================================== */
+/* =========================================
+   STYLE.CSS - Morocco Desert Trails (Complete)
+   ========================================= */
 
-/* --- 1. إعدادات أساسية ومتغيرات --- */
+/* 1. Variables & Base */
 :root {
-    --primary-color: #D4AF37; /* اللون الذهبي الصحراوي */
-    --secondary-color: #2C3E50; /* الأزرق الداكن */
-    --text-color: #333; /* لون النصوص العامة */
-    --light-bg: #f9f9f9; /* خلفية فاتحة للأقسام */
+    --primary-color: #D4AF37;
+    --secondary-color: #2C3E50;
+    --text-color: #333;
+    --light-bg: #f9f9f9;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Montserrat', 'Cairo', sans-serif; overflow-x: hidden; color: var(--text-color); }
+html { scroll-behavior: smooth; }
 
-html {
-    scroll-behavior: smooth; /* تنقل سلس عند الضغط على الروابط */
-}
-
-body {
-    font-family: 'Montserrat', 'Cairo', sans-serif; /* الخطوط الأساسية */
-    overflow-x: hidden; /* منع ظهور شريط تمرير أفقي */
-    color: var(--text-color);
-}
-
-/* دعم الاتجاه من اليمين لليسار للغة العربية */
+/* RTL Support for Arabic */
 html[lang="ar"] { direction: rtl; text-align: right; }
 html[lang="ar"] .nav-links { padding-right: 0; }
-html[lang="ar"] .tour-highlights i { margin-right: 0; margin-left: 10px; }
+html[lang="ar"] .tour-highlights i { margin-left: 10px; margin-right: 0; }
+html[lang="ar"] .accordion { text-align: right; }
+html[lang="ar"] .accordion:after { float: left; }
 
-
-/* --- 2. القائمة العلوية (Navigation) --- */
+/* 2. Navigation */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 5%;
-    background: rgba(255, 255, 255, 0.95); /* شبه شفافة */
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 5%; background: #fff; position: fixed; width: 100%; top: 0; z-index: 1000;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    transition: 0.3s;
 }
-
-.logo {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--primary-color);
-    font-family: 'Montserrat', sans-serif;
-    text-transform: uppercase;
-}
-
-.nav-links {
-    display: flex;
-    gap: 25px;
-    list-style: none;
-    align-items: center;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: var(--secondary-color);
-    font-weight: 600;
-    font-size: 0.95rem;
-    transition: color 0.3s;
-}
-
+.logo { font-size: 1.5rem; font-weight: 800; color: var(--primary-color); text-transform: uppercase; }
+.nav-links { display: flex; gap: 20px; list-style: none; align-items: center; }
+.nav-links a { text-decoration: none; color: var(--secondary-color); font-weight: 600; transition: 0.3s; }
 .nav-links a:hover { color: var(--primary-color); }
+.btn-nav { padding: 8px 20px; background: var(--primary-color); color: #fff !important; border-radius: 20px; }
+#language-selector { padding: 5px; border: 1px solid #ddd; border-radius: 4px; }
+.burger { display: none; font-size: 1.8rem; cursor: pointer; color: var(--secondary-color); }
 
-.btn-nav {
-    padding: 10px 20px;
-    background: var(--primary-color);
-    color: #fff !important;
-    border-radius: 30px;
-    transition: 0.3s;
-}
-.btn-nav:hover { background: #b59022; }
-
-/* قائمة اختيار اللغة */
-#language-selector {
-    padding: 5px 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-family: inherit;
-    cursor: pointer;
-}
-
-/* زر القائمة للموبايل (البرغر) - مخفي على الكمبيوتر */
-.burger { display: none; }
-
-
-/* --- 3. واجهة الموقع (Hero Section) - التعديلات الأخيرة هنا --- */
-/* =========================================
-   تحديث الواجهة (Hero) بالصورة الجديدة الكاملة
-   ========================================= */
-
-/* 1. إعداد خلفية الواجهة */
+/* 3. Hero Section (Updated Image) */
 .hero {
-    height: 100vh; /* ارتفاع كامل للشاشة */
+    height: 100vh;
     width: 100%;
-    /* رابط الصورة الجديدة - تأكد أن الاسم مطابق تماماً */
+    /* تأكد أن صورة image_10.png موجودة في جيت هاب */
     background: url('image_10.png') no-repeat center center;
-    background-size: cover; /* جعل الصورة تغطي كامل المساحة */
-    
-    /* إعدادات لضمان ظهور الصورة بشكل جيد على مختلف الشاشات */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    /* إزالة أي هوامش قد تؤثر على الصورة */
-    margin: 0;
-    padding: 0;
+    background-size: cover;
+    display: flex; align-items: center; justify-content: center;
 }
+/* Hide content because image has text */
+.hero-content { display: none; }
 
-/* 2. إخفاء النصوص والأزرار القديمة (HTML) */
-/* لأن الصورة الجديدة تحتوي على النصوص والشعار جاهزة */
-.hero-content {
-    display: none !important;
-}
-
-/* =========================================
-   باقي أكواد الموقع (القائمة، الأقسام، إلخ...)
-   اترك باقي الملف كما هو دونه تغيير
-   ========================================= */}
-
-.hero-content {
-    max-width: 900px;
-    /* رفع المحتوى قليلاً للأعلى */
-    transform: translateY(-30px);
-}
-
-/* تنسيق العنوان الرئيسي (H1) - ضخم وذو ظل قوي */
-.hero h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 3.5rem;
-    font-weight: 800;
-    color: #ffffff;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    line-height: 1.2;
-    text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.9); /* ظل قوي جداً */
-    margin-bottom: 25px;
-}
-
-/* تنسيق النص الفرعي (P) - لون كريمي وظل وإنزال الزر */
-.hero p {
-    font-family: 'Montserrat', 'Cairo', sans-serif;
-    font-size: 1.5rem;
-    color: #f7f4e4; /* لون كريمي فاتح */
-    font-weight: 600;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.9); /* ظل للنص */
-    /* المسافة التي تدفع الزر للأسفل */
-    margin-bottom: 60px;
-}
-
-/* تنسيق الزر الرئيسي */
-.btn-main {
-    padding: 15px 35px;
-    background: var(--primary-color);
-    color: #fff;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: bold;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.btn-main:hover {
-    background: #b59022;
-    transform: translateY(-3px); /* حركة بسيطة للأعلى عند التحويم */
-}
-
-
-/* --- 4. تنسيقات الأقسام العامة (Sections) --- */
+/* 4. Sections Styling */
 .section-padding { padding: 80px 5%; }
-
-.title-wrap { text-align: center; margin-bottom: 50px; }
-.title-wrap h2 {
-    font-size: 2.2rem;
-    color: var(--secondary-color);
-    margin-bottom: 15px;
-}
-.line {
-    width: 70px;
-    height: 3px;
-    background: var(--primary-color);
-    margin: 0 auto;
-}
 .bg-light { background: var(--light-bg); }
+.title-wrap { text-align: center; margin-bottom: 50px; }
+.title-wrap h2 { font-size: 2.2rem; color: var(--secondary-color); margin-bottom: 15px; }
+.line { width: 70px; height: 3px; background: var(--primary-color); margin: 0 auto; }
 
+/* Features */
+.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; text-align: center; }
+.feature-box { padding: 30px; background: #fff; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+.feature-box i { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 20px; }
 
-/* --- 5. قسم المميزات (Features Grid) --- */
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
-    text-align: center;
-}
-.feature-box {
-    padding: 30px;
-    background: #fff;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-    transition: 0.3s;
-}
-.feature-box:hover { transform: translateY(-5px); }
-.feature-box i {
-    font-size: 2.5rem;
-    color: var(--primary-color);
-    margin-bottom: 20px;
-}
-.feature-box h3 { margin-bottom: 15px; color: var(--secondary-color); }
-
-
-/* --- 6. بطاقة الرحلة (Tour Card) --- */
-.tour-card {
-    display: flex;
-    background: #fff;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    max-width: 950px;
-    margin: 0 auto;
-}
-.tour-img { flex: 1.2; min-height: 350px; }
+/* Tours */
+.tour-card { display: flex; background: #fff; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); max-width: 900px; margin: 0 auto; }
+.tour-img { flex: 1; }
 .tour-img img { width: 100%; height: 100%; object-fit: cover; }
 .tour-info { flex: 1; padding: 40px; }
-.tour-info h3 { font-size: 1.8rem; color: var(--secondary-color); margin-bottom: 15px; }
-.tour-highlights li {
-    margin: 10px 0;
-    color: #555;
-    display: flex;
-    align-items: center;
-}
-.tour-highlights i { color: var(--primary-color); margin-right: 10px; }
-.btn-outline {
-    display: inline-block;
-    margin-top: 25px;
-    padding: 10px 25px;
-    border: 2px solid var(--secondary-color);
-    color: var(--secondary-color);
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-.btn-outline:hover { background: var(--secondary-color); color: #fff; }
+.btn-outline { display: inline-block; margin-top: 20px; padding: 10px 25px; border: 2px solid var(--secondary-color); color: var(--secondary-color); text-decoration: none; border-radius: 50px; font-weight: bold; }
 
+/* 5. Gallery & Lightbox */
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; }
+.gallery-grid img { width: 100%; height: 250px; object-fit: cover; border-radius: 10px; cursor: pointer; transition: transform 0.3s; }
+.gallery-grid img:hover { transform: scale(1.03); }
 
-/* --- 7. معرض الصور (Gallery) --- */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-}
-.gallery-grid img {
-    width: 100%;
-    height: 280px;
-    object-fit: cover;
-    border-radius: 10px;
-    transition: transform 0.3s;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-.gallery-grid img:hover { transform: scale(1.03); z-index: 2; }
+/* Modal Styles */
+.modal { display: none; position: fixed; z-index: 2000; padding-top: 60px; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.9); }
+.modal-content { margin: auto; display: block; width: 80%; max-width: 700px; max-height: 80vh; object-fit: contain; animation-name: zoom; animation-duration: 0.6s; }
+@keyframes zoom { from {transform:scale(0)} to {transform:scale(1)} }
+.close { position: absolute; top: 20px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; cursor: pointer; }
 
+/* 6. Testimonials */
+.reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+.review-card { background: #fff; padding: 30px; border-radius: 10px; border-top: 4px solid var(--primary-color); box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; }
+.stars { color: #f1c40f; font-size: 1.2rem; margin-bottom: 15px; }
+.review-card h4 { color: var(--secondary-color); font-weight: 700; font-size: 1rem; margin-top: 15px; }
 
-/* --- 8. الفوتر والعناصر العائمة (Footer & Floating) --- */
-footer {
-    background: var(--secondary-color);
-    color: #fff;
-    text-align: center;
-    padding: 50px 20px;
-}
-.socials { margin: 25px 0; }
-.socials a {
-    color: var(--secondary-color);
-    background: #fff;
-    width: 40px; height: 40px;
-    display: inline-flex;
-    align-items: center; justify-content: center;
-    border-radius: 50%;
-    margin: 0 10px;
-    font-size: 1.2rem;
-    transition: 0.3s;
-}
-.socials a:hover { background: var(--primary-color); color: #fff; }
+/* 7. FAQ (Accordion) */
+.faq-container { max-width: 800px; margin: 0 auto; }
+.accordion { background-color: #fff; color: var(--secondary-color); cursor: pointer; padding: 18px; width: 100%; border: none; text-align: left; outline: none; font-size: 1.1rem; font-weight: 600; transition: 0.4s; border-bottom: 1px solid #ddd; display: flex; justify-content: space-between; align-items: center; }
+.accordion:after { content: '\002B'; color: var(--primary-color); font-weight: bold; font-size: 1.5rem; }
+.active, .accordion:hover { background-color: #f9f9f9; color: var(--primary-color); }
+.active:after { content: "\2212"; }
+.panel { padding: 0 18px; background-color: white; max-height: 0; overflow: hidden; transition: max-height 0.2s ease-out; border-bottom: 3px solid var(--primary-color); }
+.panel p { padding: 15px 0; line-height: 1.6; color: #555; }
 
-/* زر الواتساب العائم */
-.float-wa {
-    position: fixed;
-    bottom: 30px; right: 30px;
-    width: 60px; height: 60px;
-    background: #25d366;
-    color: #fff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center; justify-content: center;
-    font-size: 30px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    z-index: 100;
-    transition: 0.3s;
-}
-.float-wa:hover { transform: scale(1.1); }
+/* Footer & Floating Elements */
+footer { background: var(--secondary-color); color: #fff; text-align: center; padding: 50px 20px; }
+.socials a { color: #fff; margin: 0 10px; font-size: 1.3rem; }
+.float-wa { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: #25d366; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 100; }
 
-
-/* ==========================================================================
-   --- 9. التجاوب مع الموبايل والأجهزة اللوحية (Mobile Responsive) ---
-   يحتوي على إصلاحات الصورة والقائمة الجانبية
-   ========================================================================== */
-
-@media screen and (max-width: 1024px) {
-    .hero h1 { font-size: 2.8rem; }
-    .section-padding { padding: 60px 5%; }
-}
-
-/* للأجهزة اللوحية والهواتف (أقل من 768px) */
+/* 8. Mobile Responsiveness */
 @media screen and (max-width: 768px) {
     body { overflow-x: hidden; }
-
-    /* --- أ) القائمة الجانبية للموبايل --- */
-    .burger {
-        display: block;
-        font-size: 1.8rem;
-        color: var(--secondary-color);
-        cursor: pointer;
-        z-index: 1001;
-    }
-    .nav-links {
-        position: fixed;
-        right: 0; top: 0;
-        height: 100vh;
-        background-color: #fff;
-        display: flex;
-        flex-direction: column;
-        align-items: center; justify-content: center;
-        width: 65%;
-        transform: translateX(100%); /* مخفية */
-        transition: transform 0.4s ease-in-out;
-        box-shadow: -2px 0 10px rgba(0,0,0,0.1);
-        z-index: 1000;
-    }
-    .nav-active { transform: translateX(0%); } /* إظهار القائمة */
-    .nav-links li { margin: 20px 0; opacity: 1; }
+    .nav-links { position: fixed; right: 0; top: 0; height: 100vh; background: #fff; flex-direction: column; width: 70%; transform: translateX(100%); transition: 0.4s; box-shadow: -2px 0 10px rgba(0,0,0,0.1); justify-content: center; z-index: 999; }
+    .nav-active { transform: translateX(0%); }
     html[lang="ar"] .nav-links { left: 0; right: auto; transform: translateX(-100%); }
     html[lang="ar"] .nav-active { transform: translateX(0%); }
-
-
-    /* --- ب) إصلاحات واجهة Hero للموبايل (هام جداً) --- */
-    .hero {
-        /* تقليل الارتفاع لعدم قص الصورة كثيراً */
-        height: 75vh;
-        min-height: 550px;
-        /* التركيز على أسفل الصورة لإظهار الجمال والقصبة */
-        background-position: bottom center !important;
-        background-attachment: scroll; /* إلغاء التثبيت على الموبايل لأداء أفضل */
-    }
-
-    .hero-content {
-        /* رفع المحتوى للأعلى لافساح المجال للصورة في الأسفل */
-        justify-content: flex-start;
-        padding-top: 120px;
-        transform: translateY(0);
-    }
-
-    /* تصغير الخطوط على الموبايل */
-    .hero h1 {
-        font-size: 2rem; /* أصغر للموبايل */
-        letter-spacing: 1px;
-        margin-bottom: 15px;
-    }
-    .hero p {
-        font-size: 1.1rem; /* أصغر للموبايل */
-        padding: 0 15px;
-        /* مسافة لإنزال الزر على الموبايل */
-        margin-bottom: 50px;
-    }
-    .btn-main { padding: 12px 30px; font-size: 1rem; }
-
-
-    /* --- ج) تعديلات عامة أخرى للموبايل --- */
-    .title-wrap h2 { font-size: 1.8rem; }
-    /* جعل بطاقة الرحلة عمودية */
+    .burger { display: block; z-index: 1001; }
+    
+    /* Hero Fix for Mobile */
+    .hero { height: 70vh; background-position: bottom center !important; }
+    
     .tour-card { flex-direction: column; }
-    .tour-img { min-height: 250px; flex: auto; }
-    .tour-info { padding: 30px; }
-    .features-grid { gap: 30px; }
-    #language-selector { margin-top: 20px; }
+    .tour-img { min-height: 250px; }
+    .title-wrap h2 { font-size: 1.8rem; }
 }
-
-/* للهواتف الصغيرة جداً */
-@media screen and (max-width: 480px) {
-    .hero h1 { font-size: 1.7rem; }
-    .nav-links { width: 80%; }
-    .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
-}
-/* =========================================
-   تنسيقات نافذة تكبير الصور (Lightbox)
-   ========================================= */
-
-/* 1. جعل مؤشر الماوس يظهر كيد عند المرور على صور المعرض */
-.gallery-grid img {
-    cursor: pointer;
-}
-
-/* 2. خلفية النافذة (سوداء نصف شفافة) */
-.modal {
-    display: none; /* مخفية افتراضياً */
-    position: fixed; 
-    z-index: 2000; /* رقم عالي لتظهر فوق كل شيء بما فيه القائمة */
-    padding-top: 100px; 
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgba(0,0,0,0.9); /* لون أسود مع شفافية */
-}
-
-/* 3. الصورة المكبرة */
-.modal-content {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
-    max-height: 80vh; /* لضمان عدم خروجها عن الشاشة */
-    object-fit: contain;
-    animation-name: zoom;
-    animation-duration: 0.6s;
-}
-
-/* حركة التكبير (Zoom Animation) */
-@keyframes zoom {
-    from {transform:scale(0)} 
-    to {transform:scale(1)}
-}
-
-/* 4. زر الإغلاق (X) */
-.close {
-    position: absolute;
-    top: 15px;
-    right: 35px;
-    color: #f1f1f1;
-    font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
-    cursor: pointer;
-}
-
-.close:hover,
-.close:focus {
-    color: var(--primary-color);
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* تحسين للموبايل */
-@media only screen and (max-width: 700px){
-    .modal-content {
-        width: 95%;
-    }
-}
-/* =========================================
-   تنسيقات قسم آراء العملاء (Testimonials)
-   ========================================= */
-.reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
-
-.review-card {
-    background: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    text-align: center;
-    transition: 0.3s;
-    border-top: 4px solid var(--primary-color); /* لمسة جمالية ذهبية */
-}
-
-.review-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-}
-
-.stars {
-    color: #f1c40f; /* لون النجوم الأصفر */
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-}
-
-.review-card p {
-    font-style: italic;
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 20px;
-    font-size: 0.95rem;
-}
-
-.review-card h4 {
-    color: var(--secondary-color);
-    font-weight: 700;
-    font-size: 1rem;
-}
-/

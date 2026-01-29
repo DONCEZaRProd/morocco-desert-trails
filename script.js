@@ -25,15 +25,7 @@ const translations = {
 "review-1": "\"An unforgettable experience! sleeping under the stars in Merzouga was the highlight of our trip.\"",
 "review-2": "\"Very professional service. The luxury camp was cleaner than many hotels.\"",
 "review-3": "\"Authentic and magical. The camel trek at sunset was breathtaking.\"",   
-    "faq-title": "Frequently Asked Questions",
-        "faq-q1": "What should I wear in the desert?",
-        "faq-a1": "Comfortable clothes. Days are hot (bring sunglasses), but nights are chilly, so bring a warm jacket.",
-        "faq-q2": "Is there a bathroom in the camp?",
-        "faq-a2": "Yes! Our luxury camps offer private ensuite bathrooms with showers inside your tent.",
-        "faq-q3": "Where does the tour start?",
-        "faq-a3": "Most tours start from your hotel in Marrakech or Fes. Pick-up is included.",
-        "faq-q4": "Is the food suitable for vegetarians?",
-        "faq-a4": "Absolutely. We cater to all diets including vegetarian and vegan.",,
+   
     fr: {
         "nav-home": "Accueil",
         "nav-about": "À propos",
@@ -60,16 +52,7 @@ const translations = {
 "review-1": "\"Une expérience inoubliable ! Dormir à la belle étoile à Merzouga a été le moment fort de notre voyage.\"",
 "review-2": "\"Service très professionnel. Le bivouac de luxe était plus propre que de nombreux hôtels.\"",
 "review-3": "\"Authentique et magique. La balade à dos de chameau au coucher du soleil était époustouflante.\"", 
-"faq-title": "Questions Fréquentes",
-        "faq-q1": "Que dois-je porter dans le désert ?",
-        "faq-a1": "Des vêtements confortables. Les journées sont chaudes, mais les nuits sont fraîches, prévoyez une veste chaude.",
-        "faq-q2": "Y a-t-il une salle de bain au camp ?",
-        "faq-a2": "Oui ! Nos bivouacs de luxe disposent de salles de bain privées avec douche dans votre tente.",
-        "faq-q3": "D'où part le circuit ?",
-        "faq-a3": "La plupart des circuits partent de votre hôtel à Marrakech ou Fès. Le ramassage est inclus.",
-        "faq-q4": "La nourriture convient-elle aux végétariens ?",
-        "faq-a4": "Absolument. Nous nous adaptons à tous les régimes, y compris végétarien et végétalien.",},
-    ar: {
+
         "nav-home": "الرئيسية",
         "nav-about": "من نحن",
         "nav-tours": "الرحلات",
@@ -95,14 +78,6 @@ const translations = {
 "review-1": "\"تجربة لا تُنسى! النوم تحت النجوم في مرزوقة كان أجمل لحظة في رحلتنا للمغرب.\"",
 "review-2": "\"خدمة احترافية للغاية. المخيم الفاخر كان أنظف من العديد من الفنادق التي زرناها.\"",
 "review-3": "\"رحلة ساحرة وأصلية. ركوب الجمال وقت الغروب كان منظراً يحبس الأنفاس.\"","faq-title": "الأسئلة الشائعة",
-        "faq-q1": "ماذا يجب أن أرتدي في الصحراء؟",
-        "faq-a1": "ملابس مريحة. النهار حار (أحضر نظارة شمسية)، لكن الليالي باردة، لذا أحضر سترة دافئة.",
-        "faq-q2": "هل يوجد حمام في المخيم؟",
-        "faq-a2": "نعم! توفر مخيماتنا الفاخرة حمامات خاصة مع دش ومرحاض داخل خيمتك.",
-        "faq-q3": "من أين تبدأ الرحلة؟",
-        "faq-a3": "تبدأ معظم الجولات من فندقك في مراكش أو فاس. خدمة النقل مشمولة في السعر.",
-        "faq-q4": "هل الطعام مناسب للنباتيين؟",
-        "faq-a4": "بالتأكيد. نحن نوفر وجبات تناسب جميع الأنظمة الغذائية بما في ذلك النباتيين.",}
 };
 
 document.addEventListener('DOMContentLoaded', () => {

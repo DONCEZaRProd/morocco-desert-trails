@@ -57,7 +57,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 80px; /* تحديد ارتفاع ثابت للهيدر */
+            height: 80px; 
         }
 
         .logo-container {
@@ -105,31 +105,37 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- HERO SECTION (تم التعديل هنا لإنزال الصورة وإظهار اللوغو) --- */
+        /* --- HERO SECTION (تم التعديل لتقليل الـ Zoom) --- */
         .hero {
             position: relative;
-            /* جعل الصورة تبدأ بعد الهيدر لكي لا يغطي اللوغو */
-            margin-top: 80px;
-            height: calc(100vh - 80px); /* ارتفاع الشاشة ناقص ارتفاع الهيدر */
+            margin-top: 80px; /* لإبعاد الصورة عن الهيدر */
+            
+            /* تعديل الارتفاع لتقليل التكبير */
+            height: 85vh; /* 85% من ارتفاع الشاشة بدلاً من 100% */
+            min-height: 500px; /* ضمان حد أدنى للارتفاع */
+            
+            /* تثبيت الصورة من الأعلى والوسط */
             background: url('image_9.png') top center / cover no-repeat;
+            
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-end; /* وضع الأزرار في الأسفل تماماً */
             align-items: center;
             text-align: center;
             color: var(--white);
+            padding-bottom: 80px; /* رفع الأزرار قليلاً عن الحافة السفلية */
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
             padding: 20px;
-            /* دفع الأزرار للأسفل بعيداً عن منطقة اللوغو في الصورة */
-            margin-top: 200px; 
+            width: 100%;
         }
 
         .hero-buttons {
             margin-top: 2rem;
+            /* إضافة خلفية خفيفة جداً خلف الأزرار في حال كان النص غير مقروء (اختياري) */
         }
 
         .btn {
@@ -141,6 +147,7 @@
             cursor: pointer;
             border: none;
             font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
         }
 
         .btn-primary {
@@ -155,10 +162,11 @@
         }
 
         .btn-outline {
-            background: transparent;
+            background: rgba(255, 255, 255, 0.2); /* خلفية نصف شفافة */
             border: 2px solid var(--white);
             color: var(--white);
             margin-left: 10px;
+            backdrop-filter: blur(5px);
         }
 
         .btn-outline:hover {
@@ -402,7 +410,6 @@
             }
 
             .hero-content {
-                 /* إزالة الهامش العلوي الكبير في الموبايل */
                  margin-top: 0;
             }
 

@@ -106,7 +106,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- HERO SECTION (تم التعديل الجذري هنا) --- */
+        /* --- HERO SECTION --- */
         .hero {
             position: relative;
             margin-top: 80px;
@@ -115,10 +115,10 @@
             height: 65vh; 
             min-height: 450px; 
             
-            /* التغيير الأهم: contain لإظهار الصورة كاملة */
+            /* contain لإظهار الصورة كاملة */
             background-image: url('image_9.png');
-            background-size: contain; /* <-- هذا هو السر */
-            background-position: center; /* توسيط الصورة */
+            background-size: contain; 
+            background-position: center; 
             background-repeat: no-repeat;
             background-color: var(--sky-dark); /* لون يملأ الفراغات */
             
@@ -645,8 +645,12 @@
         <img src="image_10.png" alt="Morocco Desert Trails Logo" class="footer-logo-img">
         <p>Journeys into the Soul of the Sahara</p>
         <div style="margin-top: 20px; font-size: 1.5rem;">
-            <i class="fa-brands fa-facebook" style="margin: 0 10px;"></i>
-            <i class="fa-brands fa-instagram" style="margin: 0 10px;"></i>
+            <a href="https://www.facebook.com/share/1GPdpq769F/?mibextid=wwXIfr" target="_blank" style="margin: 0 10px; color: inherit;">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="https://www.instagram.com/morocco_desert_trails?igsh=MWg3bjBocHFrYmY0bg%3D%3D&utm_source=qr" target="_blank" style="margin: 0 10px; color: inherit;">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
         </div>
         <p style="margin-top: 2rem; font-size: 0.8rem; opacity: 0.7;">© 2026 Morocco Desert Trails. All Rights Reserved.</p>
     </footer>

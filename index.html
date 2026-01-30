@@ -57,6 +57,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            height: 80px; /* تحديد ارتفاع ثابت للهيدر */
         }
 
         .logo-container {
@@ -104,50 +105,27 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- HERO SECTION (تم التعديل هنا) --- */
+        /* --- HERO SECTION (تم التعديل هنا لإنزال الصورة وإظهار اللوغو) --- */
         .hero {
             position: relative;
-            height: 100vh;
-            /* التعديل المهم: top center يثبت الصورة من الأعلى */
+            /* جعل الصورة تبدأ بعد الهيدر لكي لا يغطي اللوغو */
+            margin-top: 80px;
+            height: calc(100vh - 80px); /* ارتفاع الشاشة ناقص ارتفاع الهيدر */
             background: url('image_9.png') top center / cover no-repeat;
             display: flex;
             flex-direction: column;
-            justify-content: center; /* توسيط المحتوى عمودياً */
+            justify-content: center;
             align-items: center;
             text-align: center;
             color: var(--white);
-            margin-top: -80px;
-        }
-
-        /* طبقة شفافة لزيادة وضوح النص */
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.2); /* تخفيف الظل قليلاً ليتضح اللوغو */
-            z-index: 1;
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 800px;
             padding: 20px;
-            /* دفع المحتوى للأسفل قليلاً لكي لا يغطي اللوغو الموجود في الصورة */
-            margin-top: 150px; 
-        }
-
-        .hero p.tagline {
-             font-family: 'Playfair Display', serif;
-             font-size: 1.5rem;
-             letter-spacing: 2px;
-             margin-top: 1rem;
-             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-             /* إخفاء النص إذا كان موجوداً بالفعل في الصورة لتجنب التكرار، أو تركه كإضافة */
-             display: none; 
+            /* دفع الأزرار للأسفل بعيداً عن منطقة اللوغو في الصورة */
+            margin-top: 200px; 
         }
 
         .hero-buttons {
@@ -408,11 +386,26 @@
             display: block;
         }
 
+        /* --- MEDIA QUERIES FOR MOBILE (تعديل خاص للموبايل) --- */
         @media (max-width: 768px) {
             .hero {
-                /* يضمن أيضاً على الموبايل أن الصورة تبدأ من الأعلى */
-                background-position: top center; 
+                /* إظهار الصورة كاملة دون قص */
+                background-size: contain;
+                background-position: top center;
+                background-repeat: no-repeat;
+                /* تقليل ارتفاع القسم قليلاً ليتناسب مع الموبايل */
+                height: auto;
+                min-height: 60vh;
+                justify-content: flex-end; /* وضع الأزرار في الأسفل */
+                padding-bottom: 50px;
+                background-color: #1a1a1a; /* لون داكن خلف الصورة لتعبئة الفراغ */
             }
+
+            .hero-content {
+                 /* إزالة الهامش العلوي الكبير في الموبايل */
+                 margin-top: 0;
+            }
+
             .grid-3 { grid-template-columns: 1fr; }
             .contact-grid { grid-template-columns: 1fr; }
             nav { display: none; }

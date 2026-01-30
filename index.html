@@ -18,7 +18,7 @@
             --text: #333333;
             --shadow: 0 10px 30px rgba(0,0,0,0.1);
             --transition: all 0.3s ease;
-            --sky-dark: #0f1c2e; /* لون مطابق لسماء الصورة */
+            --sky-dark: #0f1c2e; 
         }
 
         /* --- GLOBAL RESET --- */
@@ -106,36 +106,32 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- HERO SECTION --- */
+        /* --- HERO SECTION (التعديل الجديد هنا) --- */
         .hero {
             position: relative;
-            margin-top: 80px;
+            margin-top: 80px; /* مسافة الهيدر */
+            width: 100%; /* العرض كامل */
             
-            /* ارتفاع متوسط ليتناسب مع الصورة العريضة */
-            height: 65vh; 
-            min-height: 450px; 
+            /* هذا السطر يجعل ارتفاع القسم يتناسب تلقائياً مع عرض الصورة */
+            /* نسبة 16/9 هي النسبة القياسية لصور الخلفيات العريضة */
+            aspect-ratio: 16/9; 
             
-            /* contain لإظهار الصورة كاملة */
             background-image: url('image_9.png');
-            background-size: contain; 
-            background-position: center; 
+            background-size: cover; 
+            background-position: center;
             background-repeat: no-repeat;
-            background-color: var(--sky-dark); /* لون يملأ الفراغات */
             
             display: flex;
             flex-direction: column;
             justify-content: flex-end; /* وضع الأزرار في الأسفل */
             align-items: center;
             text-align: center;
-            color: var(--white);
-            padding-bottom: 40px;
+            padding-bottom: 4%; /* مسافة سفلية مرنة للأزرار */
         }
 
         .hero-content {
-            position: relative;
-            z-index: 2;
-            padding: 20px;
             width: 100%;
+            z-index: 2;
         }
 
         .hero-buttons {
@@ -400,18 +396,28 @@
         /* --- MEDIA QUERIES FOR MOBILE --- */
         @media (max-width: 768px) {
             .hero {
-                /* تقليل الارتفاع في الموبايل */
-                height: 50vh;
-                min-height: 300px;
-                padding-bottom: 30px;
-                /* الخلفية تبقى contain لتظهر كاملة */
+                /* في الموبايل نحافظ على نسبة العرض للارتفاع لكي تظهر الصورة كاملة */
+                aspect-ratio: 16/9; 
+                min-height: auto; 
+                margin-top: 80px;
+            }
+
+            .hero-buttons {
+                /* تصغير هامش الأزرار */
+                margin-top: 0.5rem;
+            }
+
+            .btn {
+                /* تصغير الأزرار قليلاً في الموبايل لتناسب المساحة */
+                padding: 8px 20px;
+                font-size: 0.8rem;
             }
 
             .grid-3 { grid-template-columns: 1fr; }
             .contact-grid { grid-template-columns: 1fr; }
             nav { display: none; }
             .mobile-menu-btn { display: block; }
-            .btn-outline { margin-left: 0; margin-top: 15px; display: block; width: 100%; }
+            .btn-outline { margin-left: 0; margin-top: 10px; display: block; width: 100%; }
              .btn-primary { display: block; width: 100%; }
         }
     </style>

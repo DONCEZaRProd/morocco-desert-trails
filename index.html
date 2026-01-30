@@ -1,175 +1,385 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morocco Desert Trails</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <title>Morocco Desert Trails - Voyages Authentiques</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #cda45e; /* لون الرمال الذهبي */
+            --secondary-color: #1a1a1a; /* لون داكن للفخامة */
+            --text-color: #f5f5f5;
+            --accent-color: #d9a036;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+        
+        /* دعم العربية */
+        html[lang="ar"] * { font-family: 'Cairo', sans-serif; }
+        html[lang="ar"] { direction: rtl; text-align: right; }
+
+        body { background-color: #0b0b0b; color: #fff; overflow-x: hidden; }
+
+        /* --- Header & Nav --- */
+        header {
+            background: rgba(0,0,0,0.9);
+            padding: 20px 50px;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--primary-color);
+        }
+
+        .logo { font-size: 24px; font-weight: 800; color: var(--primary-color); text-transform: uppercase; letter-spacing: 2px; }
+        
+        nav ul { display: flex; list-style: none; gap: 20px; }
+        nav a { text-decoration: none; color: white; font-size: 14px; transition: 0.3s; text-transform: uppercase; }
+        nav a:hover { color: var(--primary-color); }
+
+        .lang-switch button {
+            background: transparent; border: 1px solid var(--primary-color); color: var(--primary-color);
+            padding: 5px 10px; cursor: pointer; transition: 0.3s;
+        }
+        .lang-switch button:hover { background: var(--primary-color); color: #000; }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('YOUR-HERO-IMAGE.jpg'); /* ضع صورة الخلفية هنا */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; color: var(--primary-color); }
+        .hero p { font-size: 1.2rem; max-width: 800px; margin-bottom: 30px; line-height: 1.6; }
+        .btn-main {
+            padding: 15px 40px; background: var(--primary-color); color: #000;
+            text-decoration: none; font-weight: bold; border-radius: 30px; transition: 0.3s;
+        }
+        .btn-main:hover { background: #fff; }
+
+        /* --- Programs Section (Tabs) --- */
+        .programs-section { padding: 80px 10%; background: #111; }
+        .section-title { text-align: center; margin-bottom: 50px; font-size: 2.5rem; color: var(--primary-color); }
+
+        /* Main Tabs (Categories) */
+        .tabs { display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; flex-wrap: wrap; }
+        .tab-btn {
+            background: transparent; border: 2px solid var(--primary-color); color: #fff;
+            padding: 10px 25px; cursor: pointer; font-size: 16px; transition: 0.3s;
+        }
+        .tab-btn.active, .tab-btn:hover { background: var(--primary-color); color: #000; }
+
+        .tab-content { display: none; animation: fadeIn 0.5s; }
+        .tab-content.active { display: block; }
+
+        /* Sub-Tabs (Cities) */
+        .city-group { margin-bottom: 40px; border-left: 3px solid var(--primary-color); padding-left: 20px; }
+        html[lang="ar"] .city-group { border-left: none; border-right: 3px solid var(--primary-color); padding-left: 0; padding-right: 20px; }
+        
+        .city-title { font-size: 1.8rem; margin-bottom: 20px; color: #fff; display: flex; align-items: center; gap: 10px; }
+        
+        /* Grid for Cards */
+        .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        
+        .program-card {
+            background: #222; border-radius: 8px; overflow: hidden; transition: 0.3s;
+            border: 1px solid #333; position: relative;
+        }
+        .program-card:hover { transform: translateY(-5px); border-color: var(--primary-color); }
+        
+        .card-img { height: 180px; background: #333; display: flex; align-items: center; justify-content: center; color: #777; }
+        .card-img img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .card-body { padding: 20px; }
+        .card-title { font-size: 1.1rem; margin-bottom: 10px; color: var(--primary-color); font-weight: bold; }
+        .card-desc { font-size: 0.9rem; color: #ccc; margin-bottom: 15px; }
+        .card-link { color: #fff; text-decoration: underline; font-size: 0.85rem; }
+
+        /* --- Footer --- */
+        footer { background: #000; padding: 50px 10%; border-top: 1px solid #333; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
+        .footer-col h3 { color: var(--primary-color); margin-bottom: 20px; }
+        .footer-col p, .footer-col ul li { color: #aaa; margin-bottom: 10px; line-height: 1.6; list-style: none; }
+        .contact-info i { color: var(--primary-color); margin-right: 10px; }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            header { padding: 15px 20px; flex-direction: column; gap: 15px; }
+            nav ul { gap: 10px; flex-wrap: wrap; justify-content: center; }
+            .hero h1 { font-size: 2.5rem; }
+        }
+    </style>
 </head>
 <body>
 
-    <nav class="navbar">
+    <header>
         <div class="logo">Morocco Desert Trails</div>
-        <ul class="nav-links">
-            <li><a href="#home" data-i18n="nav-home">Accueil</a></li>
-            <li><a href="#escapades" data-i18n="nav-escapades">Escapades</a></li>
-            <li><a href="#treks" data-i18n="nav-treks">Treks</a></li>
-            <li><a href="#excursions" data-i18n="nav-excursions">Excursions</a></li>
-            <li><a href="#family" data-i18n="nav-family">Séjours Famille</a></li>
-            <li><a href="#contact" data-i18n="nav-booking">Réservation</a></li>
-            <li><a href="#contact" data-i18n="nav-contact">Contact</a></li>
-            
-            <li>
-                <select id="language-selector">
-                    <option value="fr">Français</option>
-                    <option value="en">English</option>
-                    <option value="ar">العربية</option>
-                </select>
-            </li>
-        </ul>
-        <div class="burger">
-            <i class="fas fa-bars"></i>
+        <nav>
+            <ul>
+                <li><a href="#home" data-key="nav_home">Accueil</a></li>
+                <li><a href="#programs" data-key="nav_escapades">Escapades & Treks</a></li>
+                <li><a href="#family" data-key="nav_family">Séjours Famille</a></li>
+                <li><a href="#contact" data-key="nav_contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="lang-switch">
+            <button onclick="changeLang('fr')">FR</button>
+            <button onclick="changeLang('en')">EN</button>
+            <button onclick="changeLang('ar')">عربي</button>
         </div>
-    </nav>
+    </header>
 
-    <header id="home" class="hero">
-        </header>
-
-    <section id="escapades" class="section-padding">
-        <div class="container">
-            <div class="title-wrap">
-                <h2 data-i18n="title-escapades">Nos Escapades</h2>
-                <div class="line"></div>
-                <p class="section-subtitle" data-i18n="desc-escapades">Voyages courts pour découvrir l'essentiel du Maroc.</p>
-            </div>
-            
-            <div class="tours-grid">
-                <div class="tour-card">
-                    <div class="tour-img">
-                        <img src="camel.jpg" alt="Escapade"> <span class="tour-duration"><i class="far fa-clock"></i> 3 Jours</span>
-                    </div>
-                    <div class="tour-info">
-                        <h3>Escapade Désert Express</h3> <p>Description du programme ici...</p>
-                        <a href="https://wa.me/212624725148" class="btn-outline" data-i18n="btn-book">Réserver</a>
-                    </div>
-                </div>
-                </div>
-        </div>
+    <section id="home" class="hero">
+        <h1 data-key="hero_title">Découvrir un Maroc Authentique</h1>
+        <p data-key="hero_desc">Hors des sentiers battus. Découvertes sur mesure loin du tourisme de masse. Spécialiste sud Maroc.</p>
+        <a href="#programs" class="btn-main" data-key="hero_btn">Réserver Maintenant</a>
     </section>
 
-    <section id="treks" class="section-padding bg-light">
-        <div class="container">
-            <div class="title-wrap">
-                <h2 data-i18n="title-treks">Treks & Randonnées</h2>
-                <div class="line"></div>
-                <p class="section-subtitle" data-i18n="desc-treks">Aventure à pied dans l'Atlas et le Sahara.</p>
-            </div>
-            <div class="tours-grid">
-                <div class="tour-card">
-                    <div class="tour-img">
-                        <img src="https://images.unsplash.com/photo-1512552288940-3a300922a275?w=800" alt="Trekking">
-                        <span class="tour-duration"><i class="far fa-clock"></i> 5 Jours</span>
+    <section style="padding: 60px 10%; text-align: center; background: #1a1a1a;">
+        <h2 style="color: var(--primary-color); margin-bottom: 20px;" data-key="about_title">A propos de nous</h2>
+        <p style="max-width: 800px; margin: 0 auto; color: #ccc;" data-key="about_text">
+            Morocco Desert Trails, c’est l’envie de vous faire découvrir un Maroc Authentique. Spécialiste sud Maroc, depuis 7 ans, nous vous proposons un large choix de packages et séjours découvertes sur mesure. Circuits 4x4 Désert, Excursions et Randonnées dans l'Atlas et Désert.
+        </p>
+    </section>
+
+    <section id="programs" class="programs-section">
+        <h2 class="section-title" data-key="prog_title">Nos Programmes</h2>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="openTab('escapades')" data-key="tab_escapades">Escapades Désert (4x4)</button>
+            <button class="tab-btn" onclick="openTab('treks')" data-key="tab_treks">Treks (Montagne & Désert)</button>
+            <button class="tab-btn" onclick="openTab('excursions')" data-key="tab_excursions">Excursions</button>
+            <button class="tab-btn" onclick="openTab('family')" data-key="tab_family">Séjours Famille</button>
+        </div>
+
+        <div id="escapades" class="tab-content active">
+            <div class="city-group">
+                <h3 class="city-title" data-key="dep_marrakech">Départ Marrakech</h3>
+                <div class="cards-grid">
+                    <div class="program-card">
+                        <div class="card-img"><img src="path-to-image1.jpg" alt="Oasis"></div> <div class="card-body">
+                            <h4 class="card-title">2 jours : Piste des Oasis</h4>
+                            <p class="card-desc">Une évasion rapide vers les oasis du sud.</p>
+                        </div>
                     </div>
-                    <div class="tour-info">
-                        <h3>Trek Toubkal</h3>
-                        <p>Programme trekking ici...</p>
-                        <a href="https://wa.me/212624725148" class="btn-outline" data-i18n="btn-book">Réserver</a>
+                    <div class="program-card">
+                        <div class="card-img"><img src="path-to-image2.jpg" alt="Sahara"></div>
+                        <div class="card-body">
+                            <h4 class="card-title">3 Jours : Sahara Express</h4>
+                            <p class="card-desc">L'essentiel du désert en 3 jours.</p>
+                        </div>
+                    </div>
+                    <div class="program-card">
+                        <div class="card-img"><img src="path-to-image3.jpg" alt="Erg"></div>
+                        <div class="card-body"><h4 class="card-title">4 jours : Erg & REG</h4></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="city-group">
+                <h3 class="city-title" data-key="dep_ouarzazate">Départ Ouarzazate</h3>
+                <div class="cards-grid">
+                    <div class="program-card">
+                        <div class="card-body"><h4 class="card-title">2 jours : Erg Chegaga</h4></div>
+                    </div>
+                    <div class="program-card">
+                        <div class="card-body"><h4 class="card-title">2 Jours : Gorges & Désert</h4></div>
+                    </div>
+                    <div class="program-card">
+                        <div class="card-body"><h4 class="card-title">3 jours : Mer de Sable</h4></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="city-group">
+                <h3 class="city-title" data-key="dep_agadir">Départ Agadir</h3>
+                <div class="cards-grid">
+                    <div class="program-card"><div class="card-body"><h4 class="card-title">2 jours : Portes du désert</h4></div></div>
+                    <div class="program-card"><div class="card-body"><h4 class="card-title">3 jours : Piste des Oasis</h4></div></div>
+                    <div class="program-card"><div class="card-body"><h4 class="card-title">4 jours : Vallées & Dunes</h4></div></div>
+                    <div class="program-card"><div class="card-body"><h4 class="card-title">4 jours : Magie du Sud</h4></div></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="treks" class="tab-content">
+            <div class="cards-grid">
+                <div class="program-card">
+                    <div class="card-img"><img src="trek-desert.jpg" alt="Desert Trek"></div>
+                    <div class="card-body">
+                        <h4 class="card-title" data-key="trek_desert">Treks Désert</h4>
+                        <p class="card-desc">Randonnée chamelière au cœur des dunes.</p>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="card-img"><img src="trek-mountain.jpg" alt="Mountain Trek"></div>
+                    <div class="card-body">
+                        <h4 class="card-title" data-key="trek_mountain">Treks Montagne</h4>
+                        <p class="card-desc">A la découverte de l'Atlas.</p>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="card-img"><img src="trek-vtt.jpg" alt="VTT"></div>
+                    <div class="card-body">
+                        <h4 class="card-title" data-key="trek_vtt">Treks VTT</h4>
+                        <p class="card-desc">Aventure à vélo sur les pistes.</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <section id="excursions" class="section-padding">
-        <div class="container">
-            <div class="title-wrap">
-                <h2 data-i18n="title-excursions">Excursions d'une journée</h2>
-                <div class="line"></div>
-                <p class="section-subtitle" data-i18n="desc-excursions">Départ de Marrakech ou Ouarzazate.</p>
+        <div id="excursions" class="tab-content">
+            <div class="city-group">
+                <h3 class="city-title" data-key="dep_marrakech">Départ Marrakech</h3>
+                <div class="cards-grid">
+                    <div class="program-card"><div class="card-body"><h4 class="card-title">Cascades Ouzoud</h4></div></div>
+                    <div class="program-card"><div class="card-body"><h4 class="card-title">Port d'Essaouira</h4></div></div>
+                    <div class="program-card"><div class="card-body"><h4 class="card-title">Route des Kasbahs</h4></div></div>
+                    <div class="program-card"><div class="card-body"><h4 class="card-title">Vallée Ourika</h4></div></div>
+                </div>
             </div>
-            <div class="tours-grid">
-                <div class="tour-card">
-                    <div class="tour-img">
-                        <img src="https://images.unsplash.com/photo-1539020140153-e479b8c22e70?w=800" alt="Excursion">
-                        <span class="tour-duration"><i class="far fa-clock"></i> 1 Jour</span>
-                    </div>
-                    <div class="tour-info">
-                        <h3>Excursion Ouzoud</h3>
-                        <p>Programme excursion ici...</p>
-                        <a href="https://wa.me/212624725148" class="btn-outline" data-i18n="btn-book">Réserver</a>
-                    </div>
+            <div class="city-group">
+                <h3 class="city-title" data-key="dep_ouarzazate">Départ Ouarzazate</h3>
+                <div class="cards-grid">
+                    <div class="program-card"><div class="card-body"><h4 class="card-title">Les trois vallées</h4></div></div>
+                    <div class="program-card"><div class="card-body"><h4 class="card-title">Les rives du Dràa</h4></div></div>
+                    <div class="program-card"><div class="card-body"><h4 class="card-title">Les Ksour du Sud</h4></div></div>
+                </div>
+            </div>
+            <div class="city-group">
+                <h3 class="city-title" data-key="dep_agadir">Départ Agadir</h3>
+                <div class="cards-grid">
+                    <div class="program-card"><div class="card-body"><h4 class="card-title">La vallée du Paradis</h4></div></div>
+                    <div class="program-card"><div class="card-body"><h4 class="card-title">Palmeraie Tiout</h4></div></div>
+                    <div class="program-card"><div class="card-body"><h4 class="card-title">Palmeraie Tafraoute</h4></div></div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <section id="family" class="section-padding bg-light">
-        <div class="container">
-            <div class="title-wrap">
-                <h2 data-i18n="title-family">Séjours Famille</h2>
-                <div class="line"></div>
-                <p class="section-subtitle" data-i18n="desc-family">Des expériences adaptées pour les petits et les grands.</p>
-            </div>
-            <div class="tours-grid">
-                <div class="tour-card">
-                    <div class="tour-img">
-                        <img src="camp.jpg" alt="Famille">
-                        <span class="tour-duration"><i class="far fa-clock"></i> 7 Jours</span>
-                    </div>
-                    <div class="tour-info">
-                        <h3>Vacances en Famille</h3>
-                        <p>Programme famille ici...</p>
-                        <a href="https://wa.me/212624725148" class="btn-outline" data-i18n="btn-book">Réserver</a>
-                    </div>
+        <div id="family" class="tab-content">
+             <div class="cards-grid">
+                <div class="program-card">
+                    <div class="card-img"><img src="family1.jpg" alt="Family"></div>
+                    <div class="card-body"><h4 class="card-title">Terres Berbères</h4></div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="reviews" class="section-padding">
-        <div class="container">
-            <div class="title-wrap">
-                <h2 data-i18n="reviews-title">Avis des voyageurs</h2>
-                <div class="line"></div>
-            </div>
-            <div class="reviews-grid">
-                <div class="review-card">
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p>"Une expérience inoubliable !"</p>
-                    <h4>- Sarah J.</h4>
+                <div class="program-card">
+                    <div class="card-img"><img src="family2.jpg" alt="Magic"></div>
+                    <div class="card-body"><h4 class="card-title">La Magie du Sud</h4></div>
                 </div>
             </div>
         </div>
     </section>
 
     <footer id="contact">
-        <div class="footer-content">
-            <h3>Morocco Desert Trails</h3>
-            
-            <div style="margin-top: 20px; font-size: 0.9rem; line-height: 1.8;">
-                <p><i class="fas fa-map-marker-alt"></i> LOT KHALIL 1 NR 239 ASKJOUR, Marrakech</p>
-                <p><i class="fas fa-envelope"></i> <a href="mailto:omarelazzaoui11@gmail.com" style="color: #fff; text-decoration: underline;">omarelazzaoui11@gmail.com</a></p>
-                <p><i class="fab fa-whatsapp"></i> +212 624-725148</p>
-            </div>
-
-            <div class="socials">
-                <a href="https://www.facebook.com/share/1GPdpq769F/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/morocco_desert_trails" target="_blank"><i class="fab fa-instagram"></i></a>
-            </div>
+        <div class="footer-col">
+            <div class="logo">Morocco Desert Trails</div>
+            <p>LOT KHALIL 1 NR 239 ASKJOUR, Marrakech</p>
+        </div>
+        <div class="footer-col">
+            <h3 data-key="contact_title">Contactez-nous</h3>
+            <p>Tel / WhatsApp: +212 624-725148</p>
+            <p>Email: omarelazzaoui11@gmail.com</p>
+            <p data-key="hours">Lundi - Samedi: 8:00 - 18:00</p>
+        </div>
+        <div class="footer-col">
+            <h3 data-key="quick_links">Liens Rapides</h3>
+            <ul>
+                <li><a href="#programs">Escapades</a></li>
+                <li><a href="#treks">Treks</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
     </footer>
 
-    <a href="https://wa.me/212624725148" class="float-wa" target="_blank">
-        <i class="fab fa-whatsapp my-float"></i>
-    </a>
+    <script>
+        // Tab Function
+        function openTab(tabName) {
+            var i;
+            var x = document.getElementsByClassName("tab-content");
+            var tabs = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+                x[i].classList.remove("active");
+            }
+            for (i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove("active");
+            }
+            document.getElementById(tabName).style.display = "block";
+            // Add active class slightly later for animation or logic if needed, 
+            // but simple display block works with CSS animation
+            event.currentTarget.classList.add("active");
+        }
 
-    <div id="myModal" class="modal">
-        <span class="close">&times;</span>
-        <img class="modal-content" id="img01">
-    </div>
+        // Translation Data
+        const translations = {
+            fr: {
+                nav_home: "Accueil", nav_escapades: "Escapades & Treks", nav_family: "Séjours Famille", nav_contact: "Contact",
+                hero_title: "Découvrir un Maroc Authentique",
+                hero_desc: "Hors des sentiers battus. Découvertes sur mesure loin du tourisme de masse. Spécialiste sud Maroc.",
+                hero_btn: "Réserver Maintenant",
+                about_title: "A propos de nous",
+                about_text: "Morocco Desert Trails, c’est l’envie de vous faire découvrir un Maroc Authentique. Spécialiste sud Maroc, depuis 7 ans...",
+                prog_title: "Nos Programmes",
+                tab_escapades: "Escapades Désert (4x4)", tab_treks: "Treks", tab_excursions: "Excursions", tab_family: "Séjours Famille",
+                dep_marrakech: "Départ Marrakech", dep_ouarzazate: "Départ Ouarzazate", dep_agadir: "Départ Agadir",
+                trek_desert: "Treks Désert", trek_mountain: "Treks Montagne", trek_vtt: "Treks VTT",
+                contact_title: "Contactez-nous", hours: "Lundi - Samedi: 8:00 - 18:00", quick_links: "Liens Rapides"
+            },
+            en: {
+                nav_home: "Home", nav_escapades: "Getaways & Treks", nav_family: "Family Stays", nav_contact: "Contact",
+                hero_title: "Discover Authentic Morocco",
+                hero_desc: "Off the beaten track. Tailor-made discoveries far from mass tourism. South Morocco specialist.",
+                hero_btn: "Book Now",
+                about_title: "About Us",
+                about_text: "Morocco Desert Trails is about making you discover an Authentic Morocco. South Morocco specialist for 7 years...",
+                prog_title: "Our Programs",
+                tab_escapades: "Desert Getaways (4x4)", tab_treks: "Treks", tab_excursions: "Excursions", tab_family: "Family Stays",
+                dep_marrakech: "From Marrakech", dep_ouarzazate: "From Ouarzazate", dep_agadir: "From Agadir",
+                trek_desert: "Desert Treks", trek_mountain: "Mountain Treks", trek_vtt: "Mountain Biking (VTT)",
+                contact_title: "Contact Us", hours: "Monday - Saturday: 8:00 - 18:00", quick_links: "Quick Links"
+            },
+            ar: {
+                nav_home: "الرئيسية", nav_escapades: "جولات ورحلات", nav_family: "رحلات عائلية", nav_contact: "اتصل بنا",
+                hero_title: "اكتشف المغرب الأصيل",
+                hero_desc: "خارج المسارات المألوفة. اكتشافات مصممة خصيصاً بعيداً عن السياحة الجماعية. متخصصون في جنوب المغرب.",
+                hero_btn: "احجز الآن",
+                about_title: "من نحن",
+                about_text: "Morocco Desert Trails هي رغبتنا في جعلك تكتشف المغرب الأصيل. متخصصون في جنوب المغرب منذ 7 سنوات...",
+                prog_title: "برامجنا السياحية",
+                tab_escapades: "جولات صحراوية (4x4)", tab_treks: "رحلات المشي (تريكينغ)", tab_excursions: "رحلات قصيرة", tab_family: "إقامات عائلية",
+                dep_marrakech: "انطلاق من مراكش", dep_ouarzazate: "انطلاق من ورزازات", dep_agadir: "انطلاق من أكادير",
+                trek_desert: "رحلات الصحراء", trek_mountain: "رحلات الجبال", trek_vtt: "رحلات الدراجات الجبلية",
+                contact_title: "اتصل بنا", hours: "الاثنين - السبت: 8:00 - 18:00", quick_links: "روابط سريعة"
+            }
+        };
 
-    <script src="script.js"></script>
+        function changeLang(lang) {
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            
+            const elements = document.querySelectorAll('[data-key]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-key');
+                if (translations[lang][key]) {
+                    el.innerText = translations[lang][key];
+                }
+            });
+        }
+    </script>
 </body>
 </html>

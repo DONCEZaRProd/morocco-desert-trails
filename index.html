@@ -4,124 +4,196 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Morocco Desert Trails</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX'); 
+    </script>
+
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'YOUR_PIXEL_ID');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
+    /></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         /* --- CSS VARIABLES --- */
         :root {
-            --primary-blue: #1A2B49;
-            --accent-orange: #E65100;
-            --badge-red: #FF4757;
-            --text-dark: #333333;
-            --text-light: #777777;
+            --primary: #d35400;
+            --secondary: #2c3e50;
+            --accent: #e67e22;
+            --sand: #f9f7f2;
             --white: #ffffff;
-            --bg-gray: #f4f5f7;
+            --text: #333333;
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
             --transition: all 0.3s ease;
+            --sky-dark: #0f1c2e; 
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; color: var(--text-dark); background-color: var(--white); overflow-x: hidden; }
-        
-        /* RTL Support */
-        body.rtl { font-family: 'Cairo', sans-serif; direction: rtl; text-align: right; }
-        body.rtl .hero-text { padding-right: 0; padding-left: 20px; }
-        
-        h1, h2, h3, h4 { font-weight: 700; color: var(--primary-blue); }
-        a { text-decoration: none; color: inherit; transition: var(--transition); }
-        ul { list-style: none; }
-        img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* --- HEADER --- */
-        header {
-            position: fixed; top: 0; width: 100%; background: var(--white); z-index: 1000;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05); padding: 0 5%; height: 80px;
-            display: flex; justify-content: space-between; align-items: center;
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--sand);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
-        .logo-img { height: 55px; width: auto; }
-        nav ul { display: flex; gap: 25px; font-weight: 500; text-transform: uppercase; font-size: 0.9rem; }
-        nav a:hover, nav a.active { color: var(--accent-orange); }
-        .lang-select { border: 1px solid #ddd; padding: 5px; border-radius: 4px; color: var(--primary-blue); font-weight: bold; }
-        .mobile-menu-btn { display: none; font-size: 1.5rem; cursor: pointer; }
+
+        /* --- RTL FOR ARABIC --- */
+        body.rtl {
+            font-family: 'Cairo', sans-serif;
+            direction: rtl;
+            text-align: right;
+        }
+        body.rtl .logo-img { margin-right: 0; margin-left: 10px; }
+        body.rtl .btn-outline { margin-left: 0; margin-right: 10px; }
+        body.rtl .itinerary-item { border-left: none; border-right: 3px solid var(--primary); padding-left: 0; padding-right: 20px; }
+        
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: var(--secondary); }
+        body.rtl h1, body.rtl h2, body.rtl h3, body.rtl h4 { font-family: 'Cairo', sans-serif; }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; object-fit: cover; }
+
+        /* --- NAVIGATION --- */
+        header {
+            position: fixed; top: 0; width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            padding: 0.5rem 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            height: 80px; 
+        }
+
+        .logo-container { display: flex; align-items: center; }
+        .logo-img { height: 60px; width: auto; margin-right: 10px; }
+
+        nav ul { display: flex; gap: 20px; align-items: center; }
+
+        nav a {
+            font-weight: 500; color: var(--secondary);
+            transition: var(--transition); cursor: pointer;
+            font-size: 0.95rem;
+        }
+        nav a:hover, nav a.active { color: var(--primary); }
+
+        /* القائمة المنسدلة للغات */
+        .lang-select {
+            padding: 5px 10px;
+            border-radius: 5px;
+            border: 1px solid var(--primary);
+            background: transparent;
+            color: var(--primary);
+            font-family: inherit;
+            font-weight: bold;
+            cursor: pointer;
+            outline: none;
+        }
+        .lang-select option { color: #333; }
+
+        .mobile-menu-btn { display: none; font-size: 1.8rem; cursor: pointer; color: var(--secondary); }
+
+        /* --- SECTIONS --- */
+        .page-section { display: none; padding-top: 80px; animation: fadeIn 0.5s ease; }
+        .page-section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
         /* --- HERO --- */
-        .hero-section {
-            padding: 120px 5% 60px 5%; display: grid; grid-template-columns: 1fr 1fr; align-items: center;
-            background-color: #fafafa; min-height: 85vh;
+        .hero {
+            position: relative; margin-top: 80px; width: 100%; aspect-ratio: 16/9; 
+            background-image: url('image_9.png');
+            background-size: cover; background-position: center; background-repeat: no-repeat;
+            display: flex; flex-direction: column; justify-content: flex-end; 
+            align-items: center; text-align: center; padding-bottom: 4%;
         }
-        .hero-text h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; }
-        .hero-text p { color: var(--text-light); margin-bottom: 30px; font-size: 1.1rem; }
-        .circle-wrapper { position: relative; width: 450px; height: 450px; margin: 0 auto; }
-        .circle-main { width: 100%; height: 100%; border-radius: 50%; overflow: hidden; border: 8px solid var(--white); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        .circle-small { position: absolute; bottom: -20px; right: -20px; width: 200px; height: 200px; border-radius: 50%; overflow: hidden; border: 5px solid var(--white); box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
-        
-        .btn-primary { background: var(--accent-orange); color: var(--white); padding: 12px 35px; border-radius: 50px; font-weight: bold; display: inline-block; }
-        .btn-primary:hover { background: #cf4600; transform: translateY(-3px); }
+        .hero-content { width: 100%; z-index: 2; }
+        .hero-buttons { margin-top: 1rem; }
 
-        /* --- TABS (GATEWAYS) --- */
-        .tabs-container { display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; flex-wrap: wrap; }
-        .tab-btn {
-            background: transparent; border: 2px solid #eee; padding: 10px 25px; border-radius: 30px;
-            font-weight: 600; color: var(--text-light); cursor: pointer; transition: var(--transition);
+        .btn {
+            display: inline-block; padding: 12px 30px; border-radius: 50px;
+            font-weight: 600; transition: var(--transition); cursor: pointer; border: none;
             font-family: inherit; font-size: 1rem;
         }
-        .tab-btn:hover, .tab-btn.active { border-color: var(--accent-orange); background: var(--accent-orange); color: var(--white); }
+        .btn-primary { background-color: var(--primary); color: var(--white); }
+        .btn-primary:hover { background-color: var(--accent); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(211, 84, 0, 0.4); }
+        .btn-outline { background: rgba(255, 255, 255, 0.1); border: 2px solid var(--white); color: var(--white); margin-left: 10px; }
+        .btn-outline:hover { background: var(--white); color: var(--secondary); }
 
-        /* --- TOURS GRID --- */
-        .tours-section { padding: 80px 5%; background: var(--bg-gray); }
-        .section-header { text-align: center; margin-bottom: 50px; }
-        .section-header h2 { font-size: 2.5rem; margin-bottom: 10px; }
-        
-        .tours-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-        
-        .tour-card {
-            background: var(--white); border-radius: 15px; overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: var(--transition);
-            display: flex; flex-direction: column;
-        }
-        .tour-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
-        
-        .tour-img { height: 240px; position: relative; }
-        .tour-badge { position: absolute; top: 15px; right: 15px; background: var(--badge-red); color: var(--white); padding: 5px 12px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; }
-        body.rtl .tour-badge { right: auto; left: 15px; }
-        
-        .tour-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
-        .tour-meta { display: flex; gap: 15px; color: var(--text-light); font-size: 0.85rem; margin-bottom: 10px; }
-        .tour-meta i { color: var(--accent-orange); }
-        
-        .tour-title { font-size: 1.3rem; margin-bottom: 10px; line-height: 1.4; flex-grow: 1; }
-        .tour-footer { margin-top: 20px; padding-top: 15px; border-top: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
-        .tour-price { color: var(--primary-blue); font-weight: 700; font-size: 1.2rem; }
-        .tour-link { color: var(--accent-orange); font-weight: 600; text-transform: uppercase; font-size: 0.9rem; }
+        /* --- CARDS --- */
+        .container { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
+        .section-title { text-align: center; margin-bottom: 3rem; }
+        .section-title span { color: var(--primary); text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; font-weight: 600; }
+        .section-title h2 { font-size: 2.5rem; margin-top: 10px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: var(--white); border-radius: 15px; overflow: hidden; box-shadow: var(--shadow); transition: var(--transition); }
+        .card:hover { transform: translateY(-10px); }
+        .card-img { height: 250px; width: 100%; background-color: #ddd; }
+        .card-img img { width: 100%; height: 100%; object-fit: cover; }
+        .card-content { padding: 1.5rem; }
+        .card-meta { display: flex; justify-content: space-between; color: #777; font-size: 0.9rem; margin-bottom: 1rem; }
+        .card h3 { margin-bottom: 0.5rem; font-size: 1.4rem; }
+        .price { color: var(--primary); font-weight: 700; font-size: 1.2rem; margin-top: 1rem; display: block; }
+        .card-btn { display: block; width: 100%; text-align: center; padding: 10px; margin-top: 1rem; border: 1px solid var(--secondary); border-radius: 5px; color: var(--secondary); font-weight: 600; transition: var(--transition); }
+        .card-btn:hover { background: var(--secondary); color: var(--white); }
 
-        /* --- DETAILS MODAL --- */
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000; overflow-y: auto; }
-        .modal-content { background: var(--white); width: 90%; max-width: 900px; margin: 50px auto; border-radius: 10px; position: relative; overflow: hidden; }
-        .close-btn { position: absolute; top: 20px; right: 20px; font-size: 2rem; color: var(--white); cursor: pointer; z-index: 10; background: rgba(0,0,0,0.5); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-        .modal-header-img { height: 350px; width: 100%; }
-        .modal-body { padding: 40px; }
-        .itinerary-day { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
-        .day-num { color: var(--accent-orange); font-weight: bold; margin-bottom: 5px; display: block; }
+        /* --- DETAILS --- */
+        .program-detail { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+        .detail-header { position: relative; height: 400px; border-radius: 20px; overflow: hidden; margin-bottom: 2rem; }
+        .detail-header img { width: 100%; height: 100%; object-fit: cover; }
+        .itinerary-item { display: flex; gap: 20px; margin-bottom: 2rem; border-left: 3px solid var(--primary); padding-left: 20px; }
+        .day-badge { background: var(--primary); color: var(--white); padding: 5px 15px; border-radius: 20px; height: fit-content; font-weight: bold; font-size: 0.9rem; min-width: 80px; text-align: center; }
+        .service-list { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 1rem; }
+        .service-list li { display: flex; align-items: center; gap: 10px; }
+        .service-list .check { color: green; }
+        .service-list .times { color: red; }
+        .book-section { background: var(--white); padding: 2rem; border-radius: 15px; box-shadow: var(--shadow); margin-top: 2rem; text-align: center; }
+        .whatsapp-btn { background-color: #25D366; color: white; padding: 12px 25px; border-radius: 50px; display: inline-flex; align-items: center; gap: 10px; font-weight: bold; margin-top: 10px; transition: var(--transition); }
+        .whatsapp-btn:hover { background-color: #1ebc57; }
 
-        /* --- FOOTER --- */
-        footer { background: #111; color: #aaa; padding: 60px 5% 20px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-bottom: 40px; }
-        .footer-col h3 { color: var(--white); margin-bottom: 25px; }
-        .footer-links li { margin-bottom: 12px; }
-        .contact-item { display: flex; gap: 15px; align-items: center; margin-bottom: 15px; }
-        .contact-item i { color: var(--accent-orange); }
+        /* --- CONTACT --- */
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+        .contact-info-box { background: var(--white); padding: 2rem; border-radius: 15px; box-shadow: var(--shadow); }
+        .info-item { display: flex; align-items: center; gap: 20px; margin-bottom: 1.5rem; }
+        .info-item i { font-size: 1.5rem; color: var(--primary); width: 40px; }
+        form input, form textarea { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; font-family: inherit; }
+
+        footer { background: var(--secondary); color: var(--white); padding: 3rem 2rem; text-align: center; margin-top: 4rem; }
+        .footer-logo-img { height: 80px; width: auto; margin: 0 auto 1rem auto; display: block; }
 
         /* --- MOBILE --- */
         @media (max-width: 768px) {
-            .hero-section { grid-template-columns: 1fr; text-align: center; padding-top: 100px; }
-            .circle-wrapper { width: 300px; height: 300px; margin-top: 40px; }
-            .hero-text h1 { font-size: 2.5rem; }
-            .footer-grid { grid-template-columns: 1fr; text-align: center; }
-            .contact-item { justify-content: center; }
-            nav { display: none; position: absolute; top: 80px; left: 0; width: 100%; background: var(--white); padding: 20px; border-top: 1px solid #eee; }
-            nav.active { display: block; }
-            nav ul { flex-direction: column; gap: 15px; }
+            .hero { aspect-ratio: 16/9; min-height: auto; margin-top: 80px; }
+            .hero-buttons { margin-top: 0.5rem; }
+            .btn { padding: 8px 20px; font-size: 0.8rem; }
+            .grid-3, .contact-grid { grid-template-columns: 1fr; }
             .mobile-menu-btn { display: block; }
+            nav { display: none; position: absolute; top: 80px; left: 0; width: 100%; background-color: var(--white); padding: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-top: 1px solid #eee; }
+            nav.active-menu { display: block; animation: slideDown 0.3s ease; }
+            @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+            nav ul { flex-direction: column; align-items: center; gap: 20px; }
+            nav a { font-size: 1.2rem; display: block; width: 100%; text-align: center; }
+            .btn-outline { margin-left: 0; margin-top: 10px; display: block; width: 100%; }
+            body.rtl .btn-outline { margin-right: 0; margin-top: 10px; }
+            .btn-primary { display: block; width: 100%; }
         }
     </style>
 </head>
@@ -129,280 +201,558 @@
 
     <header>
         <div class="logo-container">
-            <img src="image_10.png" alt="Logo" class="logo-img">
+            <img src="image_10.png" alt="Morocco Desert Trails Logo" class="logo-img">
         </div>
-        <nav>
+        
+        <nav id="navbar">
             <ul>
-                <li><a href="#" class="active" data-lang="home">Home</a></li>
-                <li><a href="#about" data-lang="about">About Us</a></li>
-                <li><a href="#tours" data-lang="programs">Travel Programs</a></li>
-                <li><a href="#contact" data-lang="contact">Contact</a></li>
+                <li><a onclick="showSection('home')" class="active" data-lang="home">Home</a></li>
+                <li><a onclick="showSection('programs')" data-lang="programs">Travel Programs</a></li>
+                <li><a onclick="showSection('about')" data-lang="about">About Us</a></li>
+                <li><a onclick="showSection('contact')" data-lang="contact">Contact</a></li>
+                <li>
+                    <select class="lang-select" onchange="changeLanguage(this.value)">
+                        <option value="en">English</option>
+                        <option value="fr">Français</option>
+                        <option value="es">Español</option>
+                        <option value="de">Deutsch</option>
+                        <option value="ar">العربية</option>
+                    </select>
+                </li>
             </ul>
         </nav>
-        <div style="display: flex; gap: 15px; align-items: center;">
-            <select class="lang-select" onchange="changeLanguage(this.value)">
-                <option value="en">English</option>
-                <option value="fr">Français</option>
-                <option value="es">Español</option>
-                <option value="de">Deutsch</option>
-                <option value="ar">العربية</option>
-            </select>
-            <div class="mobile-menu-btn" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></div>
+        
+        <div class="mobile-menu-btn" onclick="toggleMenu()">
+            <i class="fa-solid fa-bars"></i>
         </div>
     </header>
 
-    <section class="hero-section">
-        <div class="hero-text">
-            <h1 data-lang="hero_title">Discover the Magic of Morocco</h1>
-            <p data-lang="hero_desc">Experience the best of Morocco with our curated tours. From the imperial cities to the golden dunes of the Sahara, we create unforgettable memories.</p>
-            <a href="#tours" class="btn-primary" data-lang="view_programs">Explore Tours</a>
-        </div>
-        <div class="circle-wrapper">
-            <div class="circle-main"><img src="hero-main.png" alt="Sahara"></div>
-            <div class="circle-small"><img src="hero-group.png" alt="Group"></div>
-        </div>
-    </section>
-
-    <section class="tours-section" id="tours">
-        <div class="section-header">
-            <h2 data-lang="our_programs">Our Travel Programs</h2>
-            <p data-lang="select_cat">Select a gateway to filter tours</p>
-        </div>
-
-        <div class="tabs-container">
-            <button class="tab-btn active" onclick="filterTours('all')" data-lang="all_tours">All Tours</button>
-            <button class="tab-btn" onclick="filterTours('marrakech')" data-lang="marrakech_tours">Marrakech Tours</button>
-            <button class="tab-btn" onclick="filterTours('casablanca')" data-lang="casablanca_tours">Casablanca Tours</button>
-            <button class="tab-btn" onclick="filterTours('agadir')" data-lang="agadir_tours">Agadir Tours</button>
-        </div>
-
-        <div class="tours-grid" id="tours-grid">
-            </div>
-    </section>
-
-    <footer id="contact">
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h3 data-lang="contact_info">Contact Us</h3>
-                <div class="contact-item"><i class="fa-solid fa-phone"></i> +212 624-725148</div>
-                <div class="contact-item"><i class="fa-solid fa-envelope"></i> omarelazzaoui11@gmail.com</div>
-                <div class="contact-item"><i class="fa-solid fa-location-dot"></i> Marrakech, Morocco</div>
-            </div>
-            <div class="footer-col">
-                <h3 data-lang="quick_links">Quick Links</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Tours</a></li>
-                    <li><a href="#">About Us</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h3 data-lang="about">About Us</h3>
-                <p>Morocco Desert Trails creates authentic travel experiences, connecting you with the soul of the Sahara.</p>
+    <div id="home" class="page-section active" style="padding-top: 0;">
+        <div class="hero">
+            <div class="hero-content">
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="showSection('programs')" data-lang="view_programs">View Travel Programs</button>
+                    <button class="btn btn-outline" onclick="showSection('contact')" data-lang="contact_us">Contact Us</button>
+                </div>
             </div>
         </div>
-        <div style="text-align: center; border-top: 1px solid #333; padding-top: 20px;">
-            © 2026 Morocco Desert Trails. All Rights Reserved.
-        </div>
-    </footer>
 
-    <div id="tourModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
-            <img id="modal-img" src="" class="modal-header-img">
-            <div class="modal-body">
-                <h2 id="modal-title" style="margin-bottom: 20px; font-size: 2rem;"></h2>
-                <p id="modal-desc" style="color: #666; font-size: 1.1rem; margin-bottom: 30px;"></p>
-                
-                <h3 data-lang="itinerary" style="margin-bottom: 20px;">Itinerary</h3>
-                <div id="modal-itinerary"></div>
-                
-                <div style="margin-top: 40px; text-align: center;">
-                    <a href="#" id="modal-whatsapp" class="btn-primary" style="background: #25D366;">
-                        <i class="fa-brands fa-whatsapp"></i> Book This Tour
-                    </a>
+        <div class="container">
+            <div class="section-title">
+                <span data-lang="why_choose_us_sub">Why Choose Us</span>
+                <h2 data-lang="why_choose_us_title">We Create Memories</h2>
+            </div>
+            <div class="grid-3">
+                <div style="text-align: center; padding: 20px;">
+                    <i class="fa-solid fa-user-shield" style="font-size: 3rem; color: var(--primary); margin-bottom: 15px;"></i>
+                    <h3 data-lang="feat_1_title">Trusted Guides</h3>
+                    <p data-lang="feat_1_desc">Local Berber experts who know every dune and star in the sky.</p>
+                </div>
+                <div style="text-align: center; padding: 20px;">
+                    <i class="fa-solid fa-bed" style="font-size: 3rem; color: var(--primary); margin-bottom: 15px;"></i>
+                    <h3 data-lang="feat_2_title">Comfort & Style</h3>
+                    <p data-lang="feat_2_desc">Luxury desert camps and comfortable 4x4 transport.</p>
+                </div>
+                <div style="text-align: center; padding: 20px;">
+                    <i class="fa-solid fa-clock" style="font-size: 3rem; color: var(--primary); margin-bottom: 15px;"></i>
+                    <h3 data-lang="feat_3_title">24/7 Support</h3>
+                    <p data-lang="feat_3_desc">We are with you every step of the journey.</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <script>
-        // --- DATA EXTRACTED FROM BEINMOROCCO.COM SCREENSHOTS ---
-        const toursData = [
-            {
-                id: 1, category: 'marrakech', image: 'NL.png',
-                title: { en: "5 Days Marrakech Desert Tour", ar: "جولة صحراوية 5 أيام من مراكش" },
-                desc: { en: "Explore the High Atlas, Dades Valley, and spend a magical night in Merzouga.", ar: "استكشف الأطلس الكبير ووادي دادس واقضِ ليلة ساحرة في مرزوقة." },
-                days: 5, price: "€450",
-                itinerary: [
-                    "Day 1: Marrakech - High Atlas - Dades Valley",
-                    "Day 2: Dades - Todra Gorges - Merzouga",
-                    "Day 3: Merzouga Desert Exploration",
-                    "Day 4: Merzouga - Ouarzazate",
-                    "Day 5: Ouarzazate - Marrakech"
-                ]
-            },
-            {
-                id: 2, category: 'marrakech', image: 'DT.png',
-                title: { en: "4 Days Tour from Marrakech to Merzouga", ar: "جولة 4 أيام من مراكش إلى مرزوقة" },
-                desc: { en: "A perfect short trip to experience the Sahara dunes and Berber culture.", ar: "رحلة قصيرة مثالية لتجربة كثبان الصحراء والثقافة الأمازيغية." },
-                days: 4, price: "€380",
-                itinerary: [
-                    "Day 1: Marrakech - Dades Gorges",
-                    "Day 2: Dades - Merzouga (Camel Trek)",
-                    "Day 3: Merzouga - Ouarzazate",
-                    "Day 4: Ouarzazate - Marrakech"
-                ]
-            },
-            {
-                id: 3, category: 'marrakech', image: 'PI.png',
-                title: { en: "10 Days Morocco Exploration", ar: "استكشاف المغرب في 10 أيام" },
-                desc: { en: "Comprehensive tour from Marrakech visiting Fes, Chefchaouen, and the Desert.", ar: "جولة شاملة من مراكش لزيارة فاس، شفشاون والصحراء." },
-                days: 10, price: "€1200",
-                itinerary: ["Day 1: Arrival Marrakech", "Day 2: Marrakech City Tour", "Day 3: To Dades", "Day 4: To Merzouga", "Day 5: To Fes", "Day 6: Fes Tour", "Day 7: Chefchaouen", "Day 8: Rabat", "Day 9: Casablanca", "Day 10: Departure"]
-            },
-            {
-                id: 4, category: 'casablanca', image: 'PI.png',
-                title: { en: "5 Days Tour Casablanca to Marrakech", ar: "جولة 5 أيام من الدار البيضاء إلى مراكش" },
-                desc: { en: "Visit the imperial cities and the desert, ending in Marrakech.", ar: "زيارة المدن الإمبراطورية والصحراء، وانتهاءً بمراكش." },
-                days: 5, price: "€550",
-                itinerary: ["Day 1: Casablanca - Fes", "Day 2: Fes - Merzouga", "Day 3: Merzouga Desert", "Day 4: Dades Valley", "Day 5: Marrakech"]
-            },
-            {
-                id: 5, category: 'casablanca', image: 'NL.png',
-                title: { en: "7 Days Imperial Cities & Sahara", ar: "7 أيام المدن الإمبراطورية والصحراء" },
-                desc: { en: "The classic route covering history, culture, and nature.", ar: "الطريق الكلاسيكي الذي يغطي التاريخ والثقافة والطبيعة." },
-                days: 7, price: "€750",
-                itinerary: ["Day 1: Casablanca - Rabat", "Day 2: Fes", "Day 3: Fes - Merzouga", "Day 4: Desert Camp", "Day 5: Dades", "Day 6: Marrakech", "Day 7: Departure"]
-            },
-            {
-                id: 6, category: 'casablanca', image: 'DT.png',
-                title: { en: "9 Days Grand Morocco Tour", ar: "جولة المغرب الكبرى 9 أيام" },
-                desc: { en: "An extended journey through the best of Morocco.", ar: "رحلة ممتدة عبر أفضل ما في المغرب." },
-                days: 9, price: "€1100",
-                itinerary: ["Day 1: Casablanca", "Day 2: Rabat/Fes", "Day 3: Fes", "Day 4: Merzouga", "Day 5: Desert", "Day 6: Dades", "Day 7: Marrakech", "Day 8: Essaouira", "Day 9: Casablanca"]
-            },
-            {
-                id: 7, category: 'agadir', image: 'DT.png',
-                title: { en: "3 Days Agadir to Merzouga", ar: "3 أيام من أكادير إلى مرزوقة" },
-                desc: { en: "Fast track to the desert from the coast via Taroudant.", ar: "الطريق السريع إلى الصحراء من الساحل عبر تارودانت." },
-                days: 3, price: "€300",
-                itinerary: ["Day 1: Agadir - Taliouine - Agdz", "Day 2: Agdz - Merzouga (Camel Ride)", "Day 3: Merzouga - Agadir"]
-            },
-            {
-                id: 8, category: 'agadir', image: 'NL.png',
-                title: { en: "7 Days Agadir Desert & Atlas", ar: "7 أيام صحراء وأطلس أكادير" },
-                desc: { en: "A relaxed loop exploring the south and Anti-Atlas.", ar: "حلقة مريحة لاستكشاف الجنوب والأطلس الصغير." },
-                days: 7, price: "€650",
-                itinerary: ["Day 1: Agadir - Taroudant", "Day 2: Ouarzazate", "Day 3: Merzouga", "Day 4: Desert", "Day 5: Zagora", "Day 6: Tata", "Day 7: Agadir"]
-            }
-        ];
+    <div id="programs" class="page-section">
+        <div class="container">
+            <div class="section-title">
+                <span data-lang="packages_sub">Our Packages</span>
+                <h2 data-lang="packages_title">Featured Travel Programs</h2>
+                <p data-lang="packages_desc">Choose your perfect adventure.</p>
+            </div>
 
-        let currentLang = 'en';
+            <div class="grid-3" id="programs-grid">
+                </div>
+        </div>
+    </div>
 
-        // --- RENDER TOURS ---
-        function filterTours(category) {
-            const grid = document.getElementById('tours-grid');
-            grid.innerHTML = "";
+    <div id="program-detail-view" class="page-section">
+        <div class="container program-detail">
+            <button onclick="showSection('programs')" style="margin-bottom: 20px; border:none; background:none; cursor:pointer; color:var(--primary);">
+                <i class="fa-solid fa-arrow-left"></i> <span data-lang="back">Back to Programs</span>
+            </button>
             
-            // Update active button
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+            <div class="detail-header">
+                <img id="detail-img" src="" alt="Program Image">
+                <div style="position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: white; padding: 20px;">
+                    <h1 id="detail-title">Program Title</h1>
+                </div>
+            </div>
 
-            const filtered = category === 'all' ? toursData : toursData.filter(t => t.category === category);
+            <div class="grid-3" style="grid-template-columns: 2fr 1fr;">
+                <div>
+                    <h3 data-lang="description">Description</h3>
+                    <p id="detail-desc" style="margin-bottom: 2rem;">Full description goes here.</p>
 
-            filtered.forEach(tour => {
-                const title = tour.title[currentLang] || tour.title.en;
-                const desc = tour.desc[currentLang] || tour.desc.en;
-                
-                grid.innerHTML += `
-                <div class="tour-card" onclick="openModal(${tour.id})">
-                    <div class="tour-img">
-                        <img src="${tour.image}" alt="${title}">
-                        <span class="tour-badge"><i class="fa-regular fa-clock"></i> ${tour.days} Days</span>
+                    <h3 data-lang="itinerary">Itinerary</h3>
+                    <div id="detail-itinerary"></div>
+
+                    <h3 data-lang="services">Included Services</h3>
+                    <div class="service-list">
+                        <li><i class="fa-solid fa-check check"></i> <span data-lang="serv_1">Private 4x4 Transport</span></li>
+                        <li><i class="fa-solid fa-check check"></i> <span data-lang="serv_2">Luxury Desert Camp</span></li>
+                        <li><i class="fa-solid fa-check check"></i> <span data-lang="serv_3">Camel Trekking</span></li>
+                        <li><i class="fa-solid fa-check check"></i> <span data-lang="serv_4">Breakfast & Dinner</span></li>
+                        <li><i class="fa-solid fa-xmark times"></i> <span data-lang="serv_5">Flight Tickets</span></li>
+                        <li><i class="fa-solid fa-xmark times"></i> <span data-lang="serv_6">Personal Lunches</span></li>
                     </div>
-                    <div class="tour-content">
-                        <div class="tour-meta">
-                            <span><i class="fa-solid fa-location-dot"></i> Morocco</span>
-                            <span><i class="fa-solid fa-calendar-check"></i> Year-round</span>
+                </div>
+
+                <div>
+                    <div class="book-section">
+                        <span class="price" id="detail-price" style="font-size: 2rem; margin-bottom: 10px;">€000</span>
+                        <p data-lang="per_person">Per person</p>
+                        <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+                        <p style="font-size: 0.9rem; margin-bottom: 15px;" data-lang="ready_book">Ready to book this adventure? Contact us directly to reserve your dates.</p>
+                        <a href="#" id="wa-link" target="_blank" class="whatsapp-btn">
+                            <i class="fa-brands fa-whatsapp"></i> <span data-lang="book_wa">Book via WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="about" class="page-section">
+        <div class="container">
+            <div class="grid-3" style="grid-template-columns: 1fr 1fr; align-items: center;">
+                <div>
+                    <img src="PI.png" alt="About Morocco Desert Trails" style="border-radius: 20px; height: 350px;">
+                </div>
+                <div>
+                    <div class="section-title" style="text-align: left;">
+                        <span data-lang="about">About Us</span>
+                        <h2>Morocco Desert Trails</h2>
+                    </div>
+                    <p style="margin-bottom: 1rem;" data-lang="about_text_1">We are a passionate team of local experts based in Marrakech, dedicated to showing you the authentic side of Morocco.</p>
+                    <p data-lang="about_text_2">Our mission is to take you beyond the typical tourist paths. From the bustle of the medina to the silence of the Sahara, we organize travel programs that respect the local culture and environment.</p>
+                    <br>
+                    <p><strong>Established 2024.</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="contact" class="page-section">
+        <div class="container">
+            <div class="section-title">
+                <span data-lang="get_touch">Get In Touch</span>
+                <h2 data-lang="contact">Contact Us</h2>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info-box">
+                    <h3 data-lang="contact_info">Contact Information</h3>
+                    <br>
+                    <div class="info-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <h4 data-lang="address">Address</h4>
+                            <p>LOT KHALIL 1 NR 239 ASKJOUR, Marrakech</p>
                         </div>
-                        <h3 class="tour-title">${title}</h3>
-                        <div class="tour-footer">
-                            <span class="tour-price">From ${tour.price}</span>
-                            <span class="tour-link">View Details <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <div>
+                            <h4 data-lang="phone">Phone & WhatsApp</h4>
+                            <p>+212 624-725148</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div>
+                            <h4 data-lang="email">Email</h4>
+                            <p>omarelazzaoui11@gmail.com</p>
                         </div>
                     </div>
                 </div>
-                `;
-            });
-        }
 
-        // --- MODAL LOGIC ---
-        function openModal(id) {
-            const tour = toursData.find(t => t.id === id);
-            const title = tour.title[currentLang] || tour.title.en;
-            const desc = tour.desc[currentLang] || tour.desc.en;
+                <div>
+                    <form>
+                        <h3 data-lang="send_msg">Send us a message</h3>
+                        <br>
+                        <input type="text" placeholder="Your Name" id="form-name">
+                        <input type="email" placeholder="Your Email" id="form-email">
+                        <input type="text" placeholder="Subject" id="form-subject">
+                        <textarea rows="5" placeholder="Your Message (or requested dates)" id="form-msg"></textarea>
+                        <button class="btn btn-primary" style="width: 100%;" data-lang="send_btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
-            document.getElementById('modal-title').innerText = title;
-            document.getElementById('modal-img').src = tour.image;
-            document.getElementById('modal-desc').innerText = desc;
-            
-            let itineraryHtml = "";
-            tour.itinerary.forEach((day, index) => {
-                itineraryHtml += `<div class="itinerary-day"><span class="day-num">Day ${index+1}</span> ${day}</div>`;
-            });
-            document.getElementById('modal-itinerary').innerHTML = itineraryHtml;
+    <footer>
+        <img src="image_10.png" alt="Morocco Desert Trails Logo" class="footer-logo-img">
+        <p data-lang="tagline">Journeys into the Soul of the Sahara</p>
+        <div style="margin-top: 20px; font-size: 1.5rem;">
+            <a href="https://www.facebook.com/share/1GPdpq769F/?mibextid=wwXIfr" target="_blank" style="margin: 0 10px; color: inherit;"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.instagram.com/morocco_desert_trails?igsh=MWg3bjBocHFrYmY0bg%3D%3D&utm_source=qr" target="_blank" style="margin: 0 10px; color: inherit;"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+        <p style="margin-top: 2rem; font-size: 0.8rem; opacity: 0.7;">© 2026 Morocco Desert Trails. All Rights Reserved.</p>
+    </footer>
 
-            // WhatsApp Link
-            const waMsg = `Hello, I'm interested in: ${title}`;
-            document.getElementById('modal-whatsapp').href = `https://wa.me/212624725148?text=${encodeURIComponent(waMsg)}`;
-
-            document.getElementById('tourModal').style.display = 'block';
-        }
-
-        function closeModal() {
-            document.getElementById('tourModal').style.display = 'none';
-        }
-
-        // --- TRANSLATION LOGIC ---
+    <script>
+        // --- TRANSLATIONS (EN, AR, FR, ES, DE) ---
         const translations = {
-            en: { home: "Home", about: "About Us", programs: "Travel Programs", contact: "Contact", hero_title: "Discover the Magic of Morocco", view_programs: "Explore Tours", our_programs: "Our Travel Programs", select_cat: "Select a gateway to filter tours", all_tours: "All Tours", marrakech_tours: "Marrakech Tours", casablanca_tours: "Casablanca Tours", agadir_tours: "Agadir Tours" },
-            ar: { home: "الرئيسية", about: "من نحن", programs: "برامج الرحلات", contact: "اتصل بنا", hero_title: "اكتشف سحر المغرب", view_programs: "تصفح الرحلات", our_programs: "برامجنا السياحية", select_cat: "اختر بوابة لتصفية الرحلات", all_tours: "كل الرحلات", marrakech_tours: "رحلات مراكش", casablanca_tours: "رحلات الدار البيضاء", agadir_tours: "رحلات أكادير" },
-            fr: { home: "Accueil", about: "À Propos", programs: "Programmes", contact: "Contact", hero_title: "Découvrez la Magie du Maroc", view_programs: "Explorer", our_programs: "Nos Programmes", select_cat: "Sélectionnez une ville", all_tours: "Tous", marrakech_tours: "Tours Marrakech", casablanca_tours: "Tours Casablanca", agadir_tours: "Tours Agadir" }
+            en: {
+                home: "Home", programs: "Travel Programs", about: "About Us", contact: "Contact",
+                view_programs: "View Travel Programs", contact_us: "Contact Us",
+                why_choose_us_sub: "Why Choose Us", why_choose_us_title: "We Create Memories",
+                feat_1_title: "Trusted Guides", feat_1_desc: "Local Berber experts who know every dune and star in the sky.",
+                feat_2_title: "Comfort & Style", feat_2_desc: "Luxury desert camps and comfortable 4x4 transport.",
+                feat_3_title: "24/7 Support", feat_3_desc: "We are with you every step of the journey.",
+                packages_sub: "Our Packages", packages_title: "Featured Travel Programs", packages_desc: "Choose your perfect adventure.",
+                view_details: "View Details", days: "Days", from: "From",
+                back: "Back to Programs", description: "Description", itinerary: "Itinerary", services: "Included Services",
+                per_person: "Per person", ready_book: "Ready to book this adventure? Contact us directly to reserve your dates.",
+                book_wa: "Book via WhatsApp",
+                serv_1: "Private 4x4 Transport", serv_2: "Luxury Desert Camp", serv_3: "Camel Trekking", 
+                serv_4: "Breakfast & Dinner", serv_5: "Flight Tickets", serv_6: "Personal Lunches",
+                get_touch: "Get In Touch", contact_info: "Contact Information",
+                address: "Address", phone: "Phone & WhatsApp", email: "Email",
+                send_msg: "Send us a message", send_btn: "Send Message",
+                about_text_1: "We are a passionate team of local experts based in Marrakech, dedicated to showing you the authentic side of Morocco.",
+                about_text_2: "Our mission is to take you beyond the typical tourist paths. From the bustle of the medina to the silence of the Sahara, we organize travel programs that respect the local culture and environment.",
+                tagline: "Journeys into the Soul of the Sahara"
+            },
+            ar: {
+                home: "الرئيسية", programs: "برامج الرحلات", about: "من نحن", contact: "اتصل بنا",
+                view_programs: "تصفح البرامج", contact_us: "تواصل معنا",
+                why_choose_us_sub: "لماذا تختارنا", why_choose_us_title: "نصنع ذكريات لا تُنسى",
+                feat_1_title: "مرشدون موثوقون", feat_1_desc: "خبراء محليون يعرفون كل كثيب ونجم في سماء الصحراء.",
+                feat_2_title: "راحة وأناقة", feat_2_desc: "مخيمات صحراوية فاخرة ونقل مريح بسيارات دفع رباعي.",
+                feat_3_title: "دعم متواصل", feat_3_desc: "نحن معك في كل خطوة طوال الرحلة.",
+                packages_sub: "باقاتنا", packages_title: "أفضل البرامج السياحية", packages_desc: "اختر مغامرتك المثالية.",
+                view_details: "عرض التفاصيل", days: "أيام", from: "ابتداءً من",
+                back: "العودة للبرامج", description: "الوصف", itinerary: "برنامج الرحلة", services: "الخدمات المشمولة",
+                per_person: "للشخص الواحد", ready_book: "جاهز للحجز؟ تواصل معنا مباشرة لتحديد تواريخك.",
+                book_wa: "احجز عبر واتساب",
+                serv_1: "نقل خاص 4x4", serv_2: "مخيم صحراوي فاخر", serv_3: "جولة بالجمال", 
+                serv_4: "إفطار وعشاء", serv_5: "تذاكر الطيران", serv_6: "الغداء الشخصي",
+                get_touch: "تواصل معنا", contact_info: "معلومات الاتصال",
+                address: "العنوان", phone: "الهاتف والواتساب", email: "البريد الإلكتروني",
+                send_msg: "أرسل لنا رسالة", send_btn: "إرسال الرسالة",
+                about_text_1: "نحن فريق شغوف من الخبراء المحليين في مراكش، نكرس جهدنا لنريكم الجانب الأصيل من المغرب.",
+                about_text_2: "مهمتنا هي أن نأخذكم أبعد من المسارات السياحية المعتادة. من صخب المدينة القديمة إلى سكون الصحراء، ننظم برامج سفر تحترم الثقافة والبيئة المحلية.",
+                tagline: "رحلات نحو روح الصحراء"
+            },
+            fr: {
+                home: "Accueil", programs: "Programmes", about: "À Propos", contact: "Contact",
+                view_programs: "Voir les Programmes", contact_us: "Contactez-nous",
+                why_choose_us_sub: "Pourquoi Nous Choisir", why_choose_us_title: "Nous Créons des Souvenirs",
+                feat_1_title: "Guides de Confiance", feat_1_desc: "Experts locaux berbères connaissant chaque dune et étoile.",
+                feat_2_title: "Confort & Style", feat_2_desc: "Bivouacs de luxe et transport 4x4 confortable.",
+                feat_3_title: "Support 24/7", feat_3_desc: "Nous sommes avec vous à chaque étape du voyage.",
+                packages_sub: "Nos Forfaits", packages_title: "Programmes Vedettes", packages_desc: "Choisissez votre aventure parfaite.",
+                view_details: "Voir Détails", days: "Jours", from: "À partir de",
+                back: "Retour", description: "Description", itinerary: "Itinéraire", services: "Services Inclus",
+                per_person: "Par personne", ready_book: "Prêt à réserver ? Contactez-nous pour vos dates.",
+                book_wa: "Réserver via WhatsApp",
+                serv_1: "Transport 4x4 Privé", serv_2: "Bivouac de Luxe", serv_3: "Balade à Dos de Chameau", 
+                serv_4: "Petit-déjeuner & Dîner", serv_5: "Billets d'Avion", serv_6: "Déjeuners Personnels",
+                get_touch: "Contactez-nous", contact_info: "Informations de Contact",
+                address: "Adresse", phone: "Tél & WhatsApp", email: "Email",
+                send_msg: "Envoyez un message", send_btn: "Envoyer",
+                about_text_1: "Nous sommes une équipe passionnée d'experts locaux basés à Marrakech, dédiés à vous montrer le côté authentique du Maroc.",
+                about_text_2: "Notre mission est de vous emmener au-delà des sentiers battus. De la médina au Sahara, nous organisons des voyages respectueux de la culture.",
+                tagline: "Voyages dans l'Âme du Sahara"
+            },
+            es: {
+                home: "Inicio", programs: "Programas", about: "Nosotros", contact: "Contacto",
+                view_programs: "Ver Programas", contact_us: "Contáctenos",
+                why_choose_us_sub: "Por Qué Elegirnos", why_choose_us_title: "Creamos Recuerdos",
+                feat_1_title: "Guías de Confianza", feat_1_desc: "Expertos locales bereberes que conocen cada duna.",
+                feat_2_title: "Confort y Estilo", feat_2_desc: "Campamentos de lujo y transporte 4x4 cómodo.",
+                feat_3_title: "Soporte 24/7", feat_3_desc: "Estamos contigo en cada paso del viaje.",
+                packages_sub: "Paquetes", packages_title: "Programas Destacados", packages_desc: "Elige tu aventura perfecta.",
+                view_details: "Ver Detalles", days: "Días", from: "Desde",
+                back: "Volver", description: "Descripción", itinerary: "Itinerario", services: "Servicios Incluidos",
+                per_person: "Por persona", ready_book: "¿Listo para reservar? Contáctenos para sus fechas.",
+                book_wa: "Reservar por WhatsApp",
+                serv_1: "Transporte 4x4 Privado", serv_2: "Campamento de Lujo", serv_3: "Paseo en Camello", 
+                serv_4: "Desayuno y Cena", serv_5: "Vuelos", serv_6: "Almuerzos",
+                get_touch: "Contáctenos", contact_info: "Información de Contacto",
+                address: "Dirección", phone: "Tel y WhatsApp", email: "Email",
+                send_msg: "Enviar mensaje", send_btn: "Enviar",
+                about_text_1: "Somos un equipo apasionado de expertos locales en Marrakech, dedicados a mostrarle el lado auténtico de Marruecos.",
+                about_text_2: "Nuestra misión es llevarte más allá de las rutas turísticas. Desde la medina hasta el Sahara, organizamos viajes respetuosos.",
+                tagline: "Viajes al Alma del Sahara"
+            },
+            de: {
+                home: "Startseite", programs: "Programme", about: "Über Uns", contact: "Kontakt",
+                view_programs: "Programme Ansehen", contact_us: "Kontaktieren Sie uns",
+                why_choose_us_sub: "Warum Wir", why_choose_us_title: "Wir Schaffen Erinnerungen",
+                feat_1_title: "Vertrauenswürdige Guides", feat_1_desc: "Lokale Berber-Experten, die jede Düne kennen.",
+                feat_2_title: "Komfort & Stil", feat_2_desc: "Luxus-Wüstencamps und komfortabler 4x4-Transport.",
+                feat_3_title: "24/7 Support", feat_3_desc: "Wir sind bei jedem Schritt der Reise bei Ihnen.",
+                packages_sub: "Unsere Pakete", packages_title: "Beliebte Programme", packages_desc: "Wählen Sie Ihr perfektes Abenteuer.",
+                view_details: "Details Ansehen", days: "Tage", from: "Ab",
+                back: "Zurück", description: "Beschreibung", itinerary: "Reiseverlauf", services: "Inklusivleistungen",
+                per_person: "Pro Person", ready_book: "Bereit zu buchen? Kontaktieren Sie uns für Ihre Termine.",
+                book_wa: "Buchen über WhatsApp",
+                serv_1: "Privater 4x4 Transport", serv_2: "Luxus Wüstencamp", serv_3: "Kamelritt", 
+                serv_4: "Frühstück & Abendessen", serv_5: "Flugtickets", serv_6: "Mittagessen",
+                get_touch: "Kontaktieren Sie uns", contact_info: "Kontaktinformationen",
+                address: "Adresse", phone: "Tel & WhatsApp", email: "E-Mail",
+                send_msg: "Nachricht senden", send_btn: "Senden",
+                about_text_1: "Wir sind ein leidenschaftliches Team lokaler Experten in Marrakesch, das Ihnen das authentische Marokko zeigt.",
+                about_text_2: "Unsere Mission ist es, Sie abseits der Touristenpfade zu führen. Von der Medina bis zur Sahara organisieren wir respektvolle Reisen.",
+                tagline: "Reisen in die Seele der Sahara"
+            }
         };
 
+        // --- PROGRAMS DATA (MULTI-LINGUAL) ---
+        const programsData = {
+            1: {
+                title: { 
+                    en: "The Golden Dunes Trek", ar: "رحلة الكثبان الذهبية", 
+                    fr: "Trek des Dunes Dorées", es: "Caminata de las Dunas Doradas", de: "Trek der Goldenen Dünen" 
+                },
+                image: "DT.png",
+                desc: { 
+                    en: "A magical 3-day journey starting from Marrakech, crossing the High Atlas mountains, visiting Ait Ben Haddou, and ending with a sunset camel trek in Merzouga.",
+                    ar: "رحلة ساحرة لمدة 3 أيام تبدأ من مراكش، تعبر جبال الأطلس الكبير، وتزور آيت بن حدو، وتنتهي بجولة على الجمال وقت الغروب في مرزوقة.",
+                    fr: "Un voyage magique de 3 jours au départ de Marrakech, traversant le Haut Atlas, visitant Ait Ben Haddou, et finissant par une balade à dos de chameau à Merzouga.",
+                    es: "Un viaje mágico de 3 días desde Marrakech, cruzando el Alto Atlas, visitando Ait Ben Haddou y terminando con un paseo en camello en Merzouga.",
+                    de: "Eine magische 3-tägige Reise ab Marrakesch, über den Hohen Atlas, Besuch von Ait Ben Haddou und Kamelritt in Merzouga."
+                },
+                location: { en: "Merzouga", ar: "مرزوقة", fr: "Merzouga", es: "Merzouga", de: "Merzouga" },
+                days: 3,
+                price: "€250",
+                itinerary: [
+                    { day: "1", 
+                      text_en: "Marrakech to Dades Valley via High Atlas Mountains.", 
+                      text_ar: "من مراكش إلى وادي دادس عبر جبال الأطلس الكبير.",
+                      text_fr: "Marrakech à la Vallée du Dadès via le Haut Atlas.",
+                      text_es: "Marrakech al Valle del Dades vía Alto Atlas.",
+                      text_de: "Marrakesch ins Dades-Tal über den Hohen Atlas."
+                    },
+                    { day: "2", 
+                      text_en: "Dades Valley to Merzouga Dunes (Camel Trek & Camp).", 
+                      text_ar: "من وادي دادس إلى كثبان مرزوقة (جمال ومخيم).",
+                      text_fr: "Vallée du Dadès aux Dunes de Merzouga (Chameau & Bivouac).",
+                      text_es: "Valle del Dades a las Dunas de Merzouga (Camello y Campamento).",
+                      text_de: "Dades-Tal zu den Merzouga-Dünen (Kamelritt & Camp)."
+                    },
+                    { day: "3", 
+                      text_en: "Sunrise in Sahara and return to Marrakech.", 
+                      text_ar: "شروق الشمس في الصحراء والعودة إلى مراكش.",
+                      text_fr: "Lever de soleil au Sahara et retour à Marrakech.",
+                      text_es: "Amanecer en el Sahara y regreso a Marrakech.",
+                      text_de: "Sonnenaufgang in der Sahara und Rückkehr nach Marrakesch."
+                    }
+                ]
+            },
+            2: {
+                title: { 
+                    en: "Atlas to Sahara Expedition", ar: "بعثة الأطلس والصحراء",
+                    fr: "Expédition Atlas et Sahara", es: "Expedición Atlas y Sahara", de: "Atlas bis Sahara Expedition"
+                },
+                image: "PI.png",
+                desc: {
+                    en: "An extended adventure exploring the hidden gems of the South. Visit the Todra Gorges, Ouarzazate film studios, and spend nights under the stars.",
+                    ar: "مغامرة ممتدة لاستكشاف جواهر الجنوب الخفية. قم بزيارة مضايق تودغى، استوديوهات ورزازات، وقضاء ليالي تحت النجوم.",
+                    fr: "Une aventure étendue explorant les joyaux cachés du Sud. Visitez les Gorges du Todra, les studios de Ouarzazate, et dormez sous les étoiles.",
+                    es: "Una aventura extendida explorando las joyas ocultas del Sur. Visita las Gargantas del Todra, los estudios de Ouarzazate y duerme bajo las estrellas.",
+                    de: "Ein erweitertes Abenteuer zu den verborgenen Juwelen des Südens. Besuchen Sie die Todra-Schlucht, die Filmstudios von Ouarzazate und schlafen Sie unter den Sternen."
+                },
+                location: { en: "Atlas & Sahara", ar: "الأطلس والصحراء", fr: "Atlas & Sahara", es: "Atlas y Sahara", de: "Atlas & Sahara" },
+                days: 5,
+                price: "€450",
+                itinerary: [
+                    { day: "1", text_en: "Marrakech to Ouarzazate.", text_ar: "من مراكش إلى ورزازات.", text_fr: "Marrakech à Ouarzazate.", text_es: "Marrakech a Ouarzazate.", text_de: "Marrakesch nach Ouarzazate." },
+                    { day: "2", text_en: "Ouarzazate to Merzouga.", text_ar: "من ورزازات إلى مرزوقة.", text_fr: "Ouarzazate à Merzouga.", text_es: "Ouarzazate a Merzouga.", text_de: "Ouarzazate nach Merzouga." },
+                    { day: "3", text_en: "4x4 Desert Exploration & Nomadic Visit.", text_ar: "استكشاف الصحراء بالدفع الرباعي وزيارة الرحل.", text_fr: "Exploration Désert 4x4 & Visite Nomade.", text_es: "Exploración 4x4 y Visita Nómada.", text_de: "4x4 Wüstenerkundung & Nomadenbesuch." },
+                    { day: "4", text_en: "Merzouga to Agdz.", text_ar: "من مرزوقة إلى أكدز.", text_fr: "Merzouga à Agdz.", text_es: "Merzouga a Agdz.", text_de: "Merzouga nach Agdz." },
+                    { day: "5", text_en: "Agdz to Marrakech.", text_ar: "من أكدز إلى مراكش.", text_fr: "Agdz à Marrakech.", text_es: "Agdz a Marrakech.", text_de: "Agdz nach Marrakesch." }
+                ]
+            },
+            3: {
+                title: { 
+                    en: "Nomadic Culture & Heritage", ar: "تراث وثقافة الرحل",
+                    fr: "Culture & Patrimoine Nomade", es: "Cultura y Patrimonio Nómada", de: "Nomadische Kultur & Erbe"
+                },
+                image: "NL.png",
+                desc: {
+                    en: "Discover the real Morocco. Meet local Berber families, enjoy traditional music (Gnawa), and taste authentic cuisine in the desert.",
+                    ar: "اكتشف المغرب الحقيقي. قابل العائلات الأمازيغية، استمتع بموسيقى كناوة التقليدية، وتذوق المأكولات الأصيلة في الصحراء.",
+                    fr: "Découvrez le vrai Maroc. Rencontrez des familles berbères, profitez de la musique Gnawa et goûtez à la cuisine authentique.",
+                    es: "Descubre el verdadero Marruecos. Conoce familias bereberes, disfruta de la música Gnawa y prueba la cocina auténtica.",
+                    de: "Entdecken Sie das wahre Marokko. Treffen Sie Berberfamilien, genießen Sie Gnawa-Musik und probieren Sie authentische Küche."
+                },
+                location: { en: "Cultural Tour", ar: "جولة ثقافية", fr: "Tour Culturel", es: "Tour Cultural", de: "Kulturreise" },
+                days: 4,
+                price: "€380",
+                itinerary: [
+                    { day: "1", text_en: "Arrival in Marrakech.", text_ar: "الوصول إلى مراكش.", text_fr: "Arrivée à Marrakech.", text_es: "Llegada a Marrakech.", text_de: "Ankunft in Marrakesch." },
+                    { day: "2", text_en: "Journey to the Desert Encampment.", text_ar: "رحلة إلى المخيم الصحراوي.", text_fr: "Voyage vers le Bivouac.", text_es: "Viaje al Campamento.", text_de: "Reise zum Wüstencamp." },
+                    { day: "3", text_en: "Cultural Immersion & Music.", text_ar: "انغماس ثقافي وموسيقى.", text_fr: "Immersion Culturelle & Musique.", text_es: "Inmersión Cultural y Música.", text_de: "Kulturelles Eintauchen & Musik." },
+                    { day: "4", text_en: "Return trip.", text_ar: "رحلة العودة.", text_fr: "Voyage de retour.", text_es: "Viaje de regreso.", text_de: "Rückreise." }
+                ]
+            }
+        };
+
+        let currentLang = 'en';
+
+        // --- LANGUAGE LOGIC ---
         function changeLanguage(lang) {
             currentLang = lang;
+            updatePageLanguage();
+        }
+
+        function updatePageLanguage() {
             const body = document.getElementById('body');
             
-            if(lang === 'ar') {
+            // RTL handling for Arabic
+            if (currentLang === 'ar') {
                 body.classList.add('rtl');
                 document.documentElement.lang = "ar";
             } else {
                 body.classList.remove('rtl');
-                document.documentElement.lang = lang;
+                document.documentElement.lang = currentLang;
             }
 
-            // Update Text
+            // Update static text
             document.querySelectorAll('[data-lang]').forEach(el => {
                 const key = el.getAttribute('data-lang');
-                if(translations[lang] && translations[lang][key]) {
-                    el.innerText = translations[lang][key];
+                if(translations[currentLang][key]) {
+                    el.textContent = translations[currentLang][key];
                 }
             });
 
-            // Re-render tours to update titles
-            filterTours(document.querySelector('.tab-btn.active').getAttribute('onclick').split("'")[1]);
+            // Re-render dynamic programs list
+            renderPrograms();
+
+            // Update form placeholders
+            const formPlaceholders = {
+                en: ["Your Name", "Your Email", "Subject", "Your Message"],
+                ar: ["الاسم", "البريد الإلكتروني", "الموضوع", "الرسالة"],
+                fr: ["Votre Nom", "Votre Email", "Sujet", "Votre Message"],
+                es: ["Su Nombre", "Su Email", "Asunto", "Su Mensaje"],
+                de: ["Ihr Name", "Ihre E-Mail", "Betreff", "Ihre Nachricht"]
+            };
+            
+            document.getElementById('form-name').placeholder = formPlaceholders[currentLang][0];
+            document.getElementById('form-email').placeholder = formPlaceholders[currentLang][1];
+            document.getElementById('form-subject').placeholder = formPlaceholders[currentLang][2];
+            document.getElementById('form-msg').placeholder = formPlaceholders[currentLang][3];
+        }
+
+        function renderPrograms() {
+            const grid = document.getElementById('programs-grid');
+            grid.innerHTML = ""; 
+
+            for (const id in programsData) {
+                const prog = programsData[id];
+                const title = prog.title[currentLang];
+                const desc = prog.desc[currentLang];
+                const loc = prog.location[currentLang];
+                const daysLabel = translations[currentLang].days;
+                const fromLabel = translations[currentLang].from;
+                const viewBtn = translations[currentLang].view_details;
+
+                grid.innerHTML += `
+                <div class="card">
+                    <div class="card-img">
+                        <img src="${prog.image}" alt="${title}">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-meta">
+                            <span><i class="fa-regular fa-clock"></i> ${prog.days} ${daysLabel}</span>
+                            <span><i class="fa-solid fa-location-dot"></i> ${loc}</span>
+                        </div>
+                        <h3>${title}</h3>
+                        <p>${desc}</p>
+                        <span class="price">${fromLabel} ${prog.price}</span>
+                        <button class="card-btn" onclick="openProgram(${id})">${viewBtn}</button>
+                    </div>
+                </div>
+                `;
+            }
+        }
+
+        renderPrograms(); 
+
+        function showSection(sectionId) {
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+            document.getElementById('navbar').classList.remove('active-menu');
+            window.scrollTo(0, 0);
         }
 
         function toggleMenu() {
-            const nav = document.querySelector('nav');
-            nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+            const nav = document.getElementById('navbar');
+            nav.classList.toggle('active-menu');
         }
 
-        // Init
-        filterTours('all');
+        function openProgram(id) {
+            const data = programsData[id];
+            if(!data) return;
 
+            const title = data.title[currentLang];
+            const desc = data.desc[currentLang];
+            const dayLabel = translations[currentLang].days;
+
+            document.getElementById('detail-title').innerText = title;
+            document.getElementById('detail-img').src = data.image;
+            document.getElementById('detail-desc').innerText = desc;
+            document.getElementById('detail-price').innerText = data.price;
+            
+            const itineraryContainer = document.getElementById('detail-itinerary');
+            itineraryContainer.innerHTML = "";
+            data.itinerary.forEach(item => {
+                const textKey = `text_${currentLang}`; 
+                const text = item[textKey];
+                itineraryContainer.innerHTML += `
+                <div class="itinerary-item">
+                    <div class="day-badge">${dayLabel} ${item.day}</div>
+                    <p>${text}</p>
+                </div>
+                `;
+            });
+
+            // --- TRACKING CODE INTEGRATION (MODIFIED) ---
+            const waNumber = "212624725148";
+            const msgPrefix = { en: "Booking inquiry:", ar: "استفسار حجز:", fr: "Demande de réservation:", es: "Reserva:", de: "Buchungsanfrage:" };
+            const message = `${msgPrefix[currentLang]} ${title}`;
+            
+            const waLink = document.getElementById('wa-link');
+            waLink.href = `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
+
+            // هذا الجزء يرسل البيانات لجوجل وفيسبوك عند النقر
+            waLink.onclick = function() {
+                // إرسال لجوجل (Google Analytics 4)
+                if(typeof gtag !== 'undefined') {
+                    gtag('event', 'generate_lead', {
+                        'currency': 'EUR',
+                        'value': parseFloat(data.price.replace('€', '')) || 0,
+                        'event_category': 'WhatsApp',
+                        'event_label': title
+                    });
+                }
+                // إرسال لفيسبوك (Meta Pixel)
+                if(typeof fbq !== 'undefined') {
+                    fbq('track', 'Contact', {
+                        content_name: title,
+                        value: parseFloat(data.price.replace('€', '')) || 0,
+                        currency: 'EUR'
+                    });
+                }
+            };
+
+            showSection('program-detail-view');
+        }
     </script>
 </body>
 </html>
